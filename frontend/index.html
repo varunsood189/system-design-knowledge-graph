@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>System Design Knowledge Graph</title>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <style>
+    :root {
+      --bg: #0f1419;
+      --surface: #1a2332;
+      --text: #e7ecf3;
+      --muted: #8b9cb3;
+      --accent: #3d8bfd;
+      --ok: #4ade80;
+      --run: #fbbf24;
+      --border: #2a3544;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: "Segoe UI", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      margin: 0;
+      padding: 1.5rem;
+      line-height: 1.5;
+      max-width: 1100px;
+    }
+    h1 { font-size: 1.5rem; margin: 0 0 0.25rem; }
+    h2 { font-size: 1.1rem; margin: 0 0 0.75rem; }
+    .subtitle { color: var(--muted); margin-bottom: 1rem; }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 1rem;
+    }
+    .how-it-works { font-size: 0.92rem; color: var(--muted); }
+    .how-it-works strong { color: var(--text); }
+    label { display: block; font-size: 0.85rem; color: var(--muted); margin-bottom: 0.35rem; }
+    input[type="url"] {
+      width: 100%;
+      padding: 0.6rem 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 1rem;
+    }
+    button {
+      margin-top: 0.75rem;
+      padding: 0.6rem 1.25rem;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    button:disabled { opacity: 0.5; cursor: not-allowed; }
+    .error { color: #f87171; }
+    .stats { color: var(--muted); font-size: 0.9rem; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+    th, td { text-align: left; padding: 0.4rem 0.5rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+    th { color: var(--muted); font-weight: 500; }
+    ul { margin: 0.25rem 0; padding-left: 1.25rem; }
+    .mermaid { background: #fff; border-radius: 6px; padding: 0.5rem; min-height: 100px; overflow: auto; }
+    .hidden { display: none; }
+    pre.trace, pre.excerpt {
+      font-size: 0.8rem;
+      color: var(--muted);
+      overflow-x: auto;
+      white-space: pre-wrap;
+      background: var(--bg);
+      padding: 0.75rem;
+      border-radius: 6px;
+      max-height: 200px;
+    }
+    .steps { list-style: none; padding: 0; margin: 0; }
+    .steps li {
+      display: flex;
+      gap: 0.75rem;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.9rem;
+    }
+    .steps li:last-child { border-bottom: none; }
+    .step-icon { width: 1.5rem; text-align: center; flex-shrink: 0; }
+    .step-pending { color: var(--muted); }
+    .step-running { color: var(--run); }
+    .step-done { color: var(--ok); }
+    .step-error { color: #f87171; }
+    .step-detail { font-size: 0.8rem; color: var(--muted); margin-top: 0.2rem; }
+    .evidence { font-size: 0.8rem; color: var(--muted); font-style: italic; }
+    a { color: var(--accent); }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    @media (max-width: 800px) { .two-col { grid-template-columns: 1fr; } }
+    details { margin-top: 0.5rem; font-size: 0.85rem; }
+    select {
+      width: 100%;
+      padding: 0.5rem 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 0.95rem;
+      margin-bottom: 0.5rem;
+    }
+    .btn-secondary {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text);
+      margin-left: 0.5rem;
+      margin-top: 0.75rem;
+    }
+    .detail-box {
+      background: var(--bg);
+      border-radius: 6px;
+      padding: 0.75rem 1rem;
+      margin-top: 0.75rem;
+    }
+    .detail-box h3 { margin: 0 0 0.5rem; font-size: 1rem; }
+    .tag { display: inline-block; background: var(--border); padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; margin-right: 0.35rem; }
+    .concept-link { cursor: pointer; color: var(--accent); text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <h1>System Design Knowledge Graph</h1>
+  <p class="subtitle">Turn engineering blogs into a connected learning graph — you do not need to read the full article.</p>
+
+  <div class="card how-it-works">
+    <strong>Why the blog URL?</strong> The blog is the <em>source document</em>. We download it, extract clean text, then run 3 LLM steps:
+    (1) concepts with quotes from the text,
+    (2) how concepts relate,
+    (3) what to learn next.
+    Results merge into <code>data/graph.json</code> — a persistent graph that grows with every article you ingest.
+    <strong>You can learn from the evidence snippets below</strong> without opening the blog; the link is there if you want depth.
+  </div>
+
+  <div class="card">
+    <label for="url">Engineering blog URL</label>
+    <input id="url" type="url" placeholder="https://netflixtechblog.com/..." />
+    <button id="ingestBtn" type="button">Ingest article</button>
+    <p id="error" class="error hidden"></p>
+  </div>
+
+  <div id="progressCard" class="card hidden">
+    <h2>Pipeline progress</h2>
+    <ul class="steps">
+      <li id="step-extract" class="step-pending">
+        <span class="step-icon">○</span>
+        <div>
+          <div>Extract article</div>
+          <div class="step-detail">trafilatura — no LLM</div>
+        </div>
+      </li>
+      <li id="step-concepts" class="step-pending">
+        <span class="step-icon">○</span>
+        <div>
+          <div>LLM #1 — Concepts</div>
+          <div class="step-detail">Kafka, Redis, patterns…</div>
+        </div>
+      </li>
+      <li id="step-relationships" class="step-pending">
+        <span class="step-icon">○</span>
+        <div>
+          <div>LLM #2 — Relationships</div>
+          <div class="step-detail">prerequisites, depends_on…</div>
+        </div>
+      </li>
+      <li id="step-graph" class="step-pending">
+        <span class="step-icon">○</span>
+        <div>
+          <div>Save graph</div>
+          <div class="step-detail">merge → graph.json</div>
+        </div>
+      </li>
+      <li id="step-recommendations" class="step-pending">
+        <span class="step-icon">○</span>
+        <div>
+          <div>LLM #3 — Learning path</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+
+  <div class="card">
+    <h2>Explore graph</h2>
+    <p class="stats">Browse previous papers/websites or inspect any concept for definitions and connections.</p>
+
+    <label for="sourceSelect">Previous article / website</label>
+    <select id="sourceSelect">
+      <option value="">— All sources (full graph) —</option>
+    </select>
+    <button type="button" class="btn-secondary" id="loadSourceBtn">Show this article's graph</button>
+
+    <label for="conceptSelect" style="margin-top:1rem">Concept in graph</label>
+    <select id="conceptSelect">
+      <option value="">— Pick a concept —</option>
+    </select>
+    <button type="button" class="btn-secondary" id="loadConceptBtn">Show details</button>
+    <button type="button" class="btn-secondary" id="enrichConceptBtn">Generate definition (LLM)</button>
+
+    <div id="conceptDetail" class="detail-box hidden"></div>
+    <div id="sourceView" class="hidden" style="margin-top:1rem">
+      <h3 id="sourceTitle"></h3>
+      <ul id="sourceConceptList"></ul>
+      <div id="mermaidSource" class="mermaid"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Persistent knowledge graph</h2>
+    <p class="stats" id="fullGraphStats">Loading…</p>
+    <p class="stats">All articles you ingest accumulate here (stored in <code>data/graph.json</code>).</p>
+    <div id="mermaidFull" class="mermaid"></div>
+  </div>
+
+  <div id="results" class="hidden">
+    <div class="card">
+      <h2>Source article (this ingest)</h2>
+      <p><a id="articleLink" href="#" target="_blank" rel="noopener"></a></p>
+      <p class="stats" id="graphStats"></p>
+      <p><strong>Excerpt</strong> — what the LLM read (first ~600 chars):</p>
+      <pre class="excerpt" id="articleExcerpt"></pre>
+    </div>
+
+    <div class="card">
+      <h2>Concepts <span class="stats">(evidence from the blog — no need to read it)</span></h2>
+      <table>
+        <thead><tr><th>Concept</th><th>Category</th><th>Evidence from article</th></tr></thead>
+        <tbody id="conceptsBody"></tbody>
+      </table>
+      <details>
+        <summary>LLM reasoning (concepts step)</summary>
+        <pre class="trace" id="conceptsReasoning"></pre>
+      </details>
+    </div>
+
+    <div class="two-col">
+      <div class="card">
+        <h2>Relationships</h2>
+        <ul id="relationshipsList"></ul>
+      </div>
+      <div class="card">
+        <h2>Learning recommendations</h2>
+        <p><strong>Focal:</strong> <span id="focal"></span></p>
+        <p><strong>Prerequisites:</strong></p>
+        <ul id="prereq"></ul>
+        <p><strong>Learn next:</strong></p>
+        <ul id="learnNext"></ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>This article's focal subgraph</h2>
+      <div id="mermaidFocal" class="mermaid"></div>
+    </div>
+  </div>
+
+  <script>
+    mermaid.initialize({ startOnLoad: false, theme: "neutral" });
+
+    const API = window.location.origin.includes("8000")
+      ? window.location.origin
+      : "http://127.0.0.1:8000";
+
+    const $ = (id) => document.getElementById(id);
+    const STEP_IDS = ["extract", "concepts", "relationships", "graph", "recommendations"];
+
+    function setStep(step, status, detailText) {
+      const el = $("step-" + step);
+      if (!el) return;
+      el.className =
+        status === "running" ? "step-running"
+        : status === "done" ? "step-done"
+        : status === "error" ? "step-error"
+        : "step-pending";
+      el.querySelector(".step-icon").textContent =
+        status === "running" ? "\u25D0" : status === "done" ? "\u2713" : status === "error" ? "\u2717" : "\u25CB";
+      if (detailText) {
+        const det = el.querySelector(".step-detail");
+        if (det) det.textContent = detailText;
+      }
+    }
+
+    function resetSteps() {
+      STEP_IDS.forEach((s) => setStep(s, "pending"));
+    }
+
+    async function renderMermaid(elId, code) {
+      const el = $(elId);
+      if (!el) return;
+      const diagram = code || "graph LR\n  empty[No data]";
+      try {
+        const { svg } = await mermaid.render(elId + "-" + Date.now(), diagram);
+        el.innerHTML = svg;
+      } catch (e) {
+        el.textContent = diagram;
+      }
+    }
+
+    async function loadFullGraph() {
+      try {
+        const res = await fetch(API + "/graph/mermaid/full");
+        const data = await res.json();
+        $("fullGraphStats").textContent =
+          data.node_count + " concepts, " + data.edge_count + " relationships in persistent graph";
+        await renderMermaid("mermaidFull", data.mermaid);
+      } catch (e) {
+        $("fullGraphStats").textContent = "Could not load graph (is the API running on port 8000?)";
+      }
+    }
+
+    function listItems(el, items) {
+      el.innerHTML = "";
+      (items || []).forEach((t) => {
+        const li = document.createElement("li");
+        li.textContent = t;
+        el.appendChild(li);
+      });
+    }
+
+    function showResults(data, mermaidFull) {
+      $("articleLink").href = data.article.url;
+      $("articleLink").textContent = data.article.title;
+      $("articleExcerpt").textContent =
+        data.article.text.slice(0, 600) + (data.article.text.length > 600 ? "\u2026" : "");
+      $("graphStats").textContent =
+        "After this ingest: " + data.graph_stats.node_count + " concepts, " + data.graph_stats.edge_count + " edges";
+
+      $("conceptsBody").innerHTML = "";
+      (data.concepts.concepts || []).forEach((c) => {
+        const tr = document.createElement("tr");
+        tr.innerHTML =
+          "<td>" + c.name + "</td><td>" + c.category + '</td><td class="evidence">' +
+          (c.evidence_span || "(no quote)") + "</td>";
+        $("conceptsBody").appendChild(tr);
+      });
+      $("conceptsReasoning").textContent = data.concepts.reasoning || "";
+
+      $("relationshipsList").innerHTML = "";
+      (data.relationships.relationships || []).forEach((r) => {
+        const li = document.createElement("li");
+        li.textContent = r.source + " \u2192 " + r.target + " (" + r.relation_type + ")";
+        $("relationshipsList").appendChild(li);
+      });
+
+      $("focal").textContent = data.recommendations.focal_concept;
+      listItems($("prereq"), data.recommendations.prerequisites);
+      listItems($("learnNext"), data.recommendations.learn_next);
+
+      renderMermaid("mermaidFocal", data.mermaid);
+      if (mermaidFull) renderMermaid("mermaidFull", mermaidFull);
+      $("results").classList.remove("hidden");
+    }
+
+    async function ingestStream(url) {
+      resetSteps();
+      $("progressCard").classList.remove("hidden");
+      $("results").classList.add("hidden");
+      $("error").classList.add("hidden");
+
+      const res = await fetch(API + "/ingest/stream", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ url }),
+      });
+
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({}));
+        throw new Error(err.detail || res.statusText);
+      }
+
+      const reader = res.body.getReader();
+      const decoder = new TextDecoder();
+      let buffer = "";
+
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        buffer += decoder.decode(value, { stream: true });
+        const parts = buffer.split("\n\n");
+        buffer = parts.pop() || "";
+
+        for (const part of parts) {
+          const line = part.trim();
+          if (!line.startsWith("data:")) continue;
+          let event;
+          try {
+            event = JSON.parse(line.slice(5).trim());
+          } catch {
+            continue;
+          }
+
+          if (event.step === "error") throw new Error(event.message);
+
+          if (STEP_IDS.includes(event.step)) {
+            if (event.status === "running") setStep(event.step, "running", event.message);
+            if (event.status === "done") {
+              const ms = event.elapsed_ms != null ? " (" + Math.round(event.elapsed_ms) + " ms)" : "";
+              setStep(event.step, "done", event.message + ms);
+            }
+          }
+
+          if (event.step === "done" && event.detail && event.detail.result) {
+            showResults(event.detail.result, event.detail.mermaid_full);
+            loadExploreData();
+          }
+        }
+      }
+    }
+
+    $("ingestBtn").addEventListener("click", async () => {
+      const url = $("url").value.trim();
+      if (!url) {
+        $("error").textContent = "Enter a URL";
+        $("error").classList.remove("hidden");
+        return;
+      }
+      $("ingestBtn").disabled = true;
+      try {
+        await ingestStream(url);
+      } catch (err) {
+        $("error").textContent = err.message;
+        $("error").classList.remove("hidden");
+      } finally {
+        $("ingestBtn").disabled = false;
+      }
+    });
+
+
+    async function loadExploreData() {
+      try {
+        const [arts, concepts] = await Promise.all([
+          fetch(API + "/articles").then((r) => r.json()),
+          fetch(API + "/concepts").then((r) => r.json()),
+        ]);
+        const sel = $("sourceSelect");
+        sel.innerHTML = '<option value="">— All sources (full graph) —</option>';
+        arts.forEach((a) => {
+          const opt = document.createElement("option");
+          opt.value = a.url;
+          opt.textContent = (a.title || a.url) + " (" + a.concept_count + " concepts)";
+          sel.appendChild(opt);
+        });
+        const csel = $("conceptSelect");
+        csel.innerHTML = '<option value="">— Pick a concept —</option>';
+        concepts.forEach((name) => {
+          const opt = document.createElement("option");
+          opt.value = name;
+          opt.textContent = name;
+          csel.appendChild(opt);
+        });
+      } catch (e) {
+        console.warn("Explore load failed", e);
+      }
+    }
+
+    function renderConceptDetail(d) {
+      const box = $("conceptDetail");
+      box.classList.remove("hidden");
+      let html = "<h3>" + d.name + "</h3>";
+      html += '<span class="tag">' + d.category + '</span><span class="tag">' + d.difficulty + '</span>';
+      html += '<span class="tag">score ' + d.importance_score.toFixed(2) + '</span>';
+      html += "<p><strong>Definition:</strong> " + (d.definition || "<em>Not stored yet — click Generate definition</em>") + "</p>";
+      if (d.prerequisites.length) html += "<p><strong>Prerequisites:</strong> " + d.prerequisites.join(", ") + "</p>";
+      if (d.related.length) html += "<p><strong>Related in graph:</strong> " + d.related.join(", ") + "</p>";
+      if (d.prerequisites.length === 0 && d.dependents.length) html += "<p><strong>Used by:</strong> " + d.dependents.join(", ") + "</p>";
+      if (d.evidence_quotes && d.evidence_quotes.length) {
+        html += "<p><strong>Evidence from articles:</strong></p><ul>";
+        d.evidence_quotes.forEach((q) => {
+          html += "<li><a href=\"" + q.url + "\" target=\"_blank\">source</a>: <span class=\"evidence\">" + q.text + "</span></li>";
+        });
+        html += "</ul>";
+      }
+      if (d.sources && d.sources.length) {
+        html += "<p><strong>From:</strong> ";
+        html += d.sources.map((u) => '<a href="' + u + '" target="_blank">' + u + "</a>").join(" · ");
+        html += "</p>";
+      }
+      box.innerHTML = html;
+    }
+
+    $("loadConceptBtn").addEventListener("click", async () => {
+      const name = $("conceptSelect").value;
+      if (!name) return;
+      const res = await fetch(API + "/concepts/" + encodeURIComponent(name));
+      const d = await res.json();
+      if (!res.ok) throw new Error(d.detail || res.statusText);
+      renderConceptDetail(d);
+    });
+
+    $("enrichConceptBtn").addEventListener("click", async () => {
+      const name = $("conceptSelect").value;
+      if (!name) return;
+      $("enrichConceptBtn").disabled = true;
+      try {
+        const res = await fetch(API + "/concepts/" + encodeURIComponent(name) + "/enrich", { method: "POST" });
+        const d = await res.json();
+        if (!res.ok) throw new Error(d.detail || res.statusText);
+        renderConceptDetail(d);
+      } finally {
+        $("enrichConceptBtn").disabled = false;
+      }
+    });
+
+    $("loadSourceBtn").addEventListener("click", async () => {
+      const url = $("sourceSelect").value;
+      $("sourceView").classList.add("hidden");
+      if (!url) {
+        loadFullGraph();
+        return;
+      }
+      const res = await fetch(API + "/graph/source?url=" + encodeURIComponent(url));
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.detail || res.statusText);
+      $("sourceView").classList.remove("hidden");
+      $("sourceTitle").textContent = (data.article && data.article.title) || url;
+      const ul = $("sourceConceptList");
+      ul.innerHTML = "";
+      data.concepts.forEach((c) => {
+        const li = document.createElement("li");
+        li.innerHTML = '<span class="concept-link" data-name="' + c.name + '">' + c.name + "</span>";
+        if (c.definition) li.innerHTML += " — " + c.definition.slice(0, 120) + (c.definition.length > 120 ? "…" : "");
+        li.querySelector(".concept-link").addEventListener("click", () => {
+          $("conceptSelect").value = c.name;
+          $("loadConceptBtn").click();
+        });
+        ul.appendChild(li);
+      });
+      await renderMermaid("mermaidSource", data.mermaid);
+    });
+
+
+    loadFullGraph();
+    loadExploreData();
+  </script>
+</body>
+</html>

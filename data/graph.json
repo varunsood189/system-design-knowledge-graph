@@ -1,0 +1,1535 @@
+{
+  "articles": [
+    {
+      "url": "https://www.amazon.science/blog/making-llms-faster-without-sacrificing-accuracy",
+      "title": "www.amazon.science",
+      "ingested_at": "",
+      "concept_count": 15
+    },
+    {
+      "url": "https://shopify.engineering/shopifys-machine-learning-platform-real-time-predictions",
+      "title": "shopify.engineering",
+      "ingested_at": "",
+      "concept_count": 15
+    },
+    {
+      "url": "https://shopify.engineering/evolution-product-classification",
+      "title": "shopify.engineering",
+      "ingested_at": "",
+      "concept_count": 15
+    },
+    {
+      "url": "https://shopify.engineering/building-commerce-data-models-with-shopifyql",
+      "title": "ShopifyQL Notebooks: Simplifying Querying with Commerce Data Models - Shopify",
+      "ingested_at": "2026-05-15T17:21:14.091731+00:00",
+      "concept_count": 11
+    },
+    {
+      "url": "https://shopify.engineering/export-datadog-metrics-in-jupyter-notebooks",
+      "title": "How to Export Datadog Metrics for Exploration in Jupyter Notebooks - Shopify",
+      "ingested_at": "2026-05-15T17:24:01.108265+00:00",
+      "concept_count": 10
+    },
+    {
+      "url": "https://shopify.engineering/double-entry-transition-tables-shopify",
+      "title": "Double Entry Transition Tables: How We Track State Changes At Shopify - Shopify",
+      "ingested_at": "2026-05-15T17:24:56.960535+00:00",
+      "concept_count": 11
+    }
+  ],
+  "nodes": [
+    {
+      "name": "Replication",
+      "category": "pattern",
+      "difficulty": "intermediate",
+      "importance_score": 0.75,
+      "sources": [
+        "https://example.com/seed"
+      ],
+      "definition": "Replication is the process of creating and maintaining multiple copies of data or system components. This is often done to improve availability, fault tolerance, and read performance. If one copy fails, others can continue to serve requests, ensuring the system remains operational.",
+      "evidence_quotes": []
+    },
+    {
+      "name": "Partitions",
+      "category": "pattern",
+      "difficulty": "intermediate",
+      "importance_score": 0.7,
+      "sources": [
+        "https://example.com/seed"
+      ],
+      "definition": "",
+      "evidence_quotes": []
+    },
+    {
+      "name": "Kafka",
+      "category": "other",
+      "difficulty": "intermediate",
+      "importance_score": 0.5,
+      "sources": [],
+      "definition": "",
+      "evidence_quotes": []
+    },
+    {
+      "name": "Large Language Models (LLMs)",
+      "category": "other",
+      "difficulty": "intermediate",
+      "importance_score": 0.9,
+      "sources": [
+        "https://www.amazon.science/blog/making-llms-faster-without-sacrificing-accuracy"
+      ],
+      "definition": "",
+      "evidence_quotes": []
+    },
+    {
+      "name": "Transformer architecture",
+      "category": "pattern",
+      "difficulty": "intermediate",
+      "importance_score": 0.95,
+      "sources": [
+        "https://www.amazon.science/blog/making-llms-faster-without-sacrificing-accuracy"
+      ],
+      "definition": "",
+      "evidence_quotes": []
+    },
+    {
+      "name": "Attention mechanism",
+      "category": "pattern",
+      "difficulty": "intermediate",
+      "importance_score": 0.85,
+      "sources": [
+        "https://www.amazon.science/blog/making-llms-faster-without-sacrificing-accuracy"
+      ],
+      "definition": "",
+      "evidence_quotes": []
+    },
+    {
+      "name": "MLP blocks",
+      "category": "pattern",
+      "difficulty": "intermediate",
+      "importance_score": 0.8,
+      "sources": [
+        "https://www.amazon.science/blog/making-llms-faster-without-sacrificing-accuracy"
+      ],
+      "definition": "",
+      "evidence_quotes": []
+    },
+    {
+      "name": "Multihead attention",
+      "category": "pattern",
+      "difficulty": "intermediate",
+      "importance_score": 0.75,
+      "sources": [
+        "https://www.amazon.science/blog/making-llms-faster-without-sacrificing-accuracy"
+      ],
+      "definition": "",
+      "evidence_quotes": []
+    },
+    {
+      "name": "Query matrix",
+      "category": "other",
+      "difficulty": "intermediate",
+      "importance_score": 0.6,
+      "sources": [
+        "https://www.amazon.science/blog/making-llms-faster-without-sacrificing-accuracy"
+      ],
+      "definition": "",
+      "evidence_quotes": []
+    },
+    {
+      "name": "Key matrix",
+      "category": "other",
+      "difficulty": "intermediate",
+      "importance_score": 0.6,
+      "sources": [
+        "https://www.amazon.science/blog/making-llms-faster-without-sacrificing-accuracy"
+      ],
+      "definition": "",
+      "evidence_quotes": []
+    },
+    {
+      "name": "Value matrix",
+      "category": "other",
+      "difficulty": "intermediate",
+      "importance_score": 0.6,
+      "sources": [
+        "https://www.amazon.science/blog/making-llms-faster-without-sacrificing-accuracy"
+      ],
+      "definition": "",
+      "evidence_quotes": []
+    },
+    {
+      "name": "Hidden size",
+      "category": "other",
+      "difficulty": "intermediate",
+      "importance_score": 0.7,
+      "sources": [
+        "https://www.amazon.science/blog/making-llms-faster-without-sacrificing-accuracy"
+      ],
+      "definition": "",
+      "evidence_quotes": []
+    },
+    {
+      "name": "MLP-to-attention ratio",
+      "category": "other",
+      "difficulty": "intermediate",
+      "importance_score": 0.7,
+      "sources": [
+        "https://www.amazon.science/blog/making-llms-faster-without-sacrificing-accuracy"
+      ],
+      "definition": "",
+      "evidence_quotes": []
+    },
+    {
+      "name": "Grouped-query attention (GQA)",
+      "category": "pattern",
+      "difficulty": "advanced",
+      "importance_score": 0.75,
+      "sources": [
+        "https://www.amazon.science/blog/making-llms-faster-without-sacrificing-accuracy"
+      ],
+      "definition": "",
+      "evidence_quotes": []
+    },
+    {
+      "name": "Chinchilla law",
+      "category": "pattern",
+      "difficulty": "intermediate",
+      "importance_score": 0.8,
+      "sources": [
+        "https://www.amazon.science/blog/making-llms-faster-without-sacrificing-accuracy"
+      ],
+      "definition": "",
+      "evidence_quotes": []
+    },
+    {
+      "name": "Pareto-optimal architectures",
+      "category": "pattern",
+      "difficulty": "advanced",
+      "importance_score": 0.7,
+      "sources": [
+        "https://www.amazon.science/blog/making-llms-faster-without-sacrificing-accuracy"
+      ],
+      "definition": "",
+      "evidence_quotes": []
+    },
+    {
+      "name": "Key-value cache",
+      "category": "cache",
+      "difficulty": "intermediate",
+      "importance_score": 0.65,
+      "sources": [
+        "https://www.amazon.science/blog/making-llms-faster-without-sacrificing-accuracy"
+      ],
+      "definition": "",
+      "evidence_quotes": []
+    },
+    {
+      "name": "vLLM",
+      "category": "infra",
+      "difficulty": "intermediate",
+      "importance_score": 0.5,
+      "sources": [
+        "https://www.amazon.science/blog/making-llms-faster-without-sacrificing-accuracy"
+      ],
+      "definition": "",
+      "evidence_quotes": []
+    },
+    {
+      "name": "Merlin",
+      "category": "infra",
+      "difficulty": "intermediate",
+      "importance_score": 0.9,
+      "sources": [
+        "https://shopify.engineering/shopifys-machine-learning-platform-real-time-predictions"
+      ],
+      "definition": "",
+      "evidence_quotes": []
+    },
+    {
+      "name": "Ray",
+      "category": "infra",
+      "difficulty": "intermediate",
+      "importance_score": 0.85,
+      "sources": [
+        "https://shopify.engineering/shopifys-machine-learning-platform-real-time-predictions"
+      ],
+      "definition": "",
+      "evidence_quotes": []
+    },
+    {
+      "name": "Merlin Online Inference",
+      "category": "infra",
+      "difficulty": "intermediate",
+      "importance_score": 0.9,
+      "sources": [
+        "https://shopify.engineering/shopifys-machine-learning-platform-real-time-predictions"
+      ],
+      "definition": "",
+      "evidence_quotes": []
+    },
+    {
+      "name": "Model Registry",
+      "category": "pattern",
+      "difficulty": "intermediate",
+      "importance_score": 0.75,
+      "sources": [
+        "https://shopify.engineering/shopifys-machine-learning-platform-real-time-predictions"
+      ],
+      "definition": "",
+      "evidence_quotes": []
+    },
+    {
+      "name": "Comet ML",
+      "category": "infra",
+      "difficulty": "intermediate",
+      "importance_score": 0.7,
+      "sources": [
+        "https://shopify.engineering/shopifys-machine-learning-platform-real-time-predictions"
+      ],
+      "definition": "",
+      "evidence_quotes": []
+    },
+    {
+      "name": "Merlin Pipelines",
+      "category": "pattern",
+      "difficulty": "intermediate",
+      "importance_score": 0.7,
+      "sources": [
+        "https://shopify.engineering/shopifys-machine-learning-platform-real-time-predictions"
+      ],
+      "definition": "",
+      "evidence_quotes": []
+    },
+    {
+      "name": "Pano Feature Store",
+      "category": "database",
+      "difficulty": "intermediate",
+      "importance_score": 0.75,
+      "sources": [
+        "https://shopify.engineering/shopifys-machine-learning-platform-real-time-predictions"
+      ],
+      "definition": "",
+      "evidence_quotes": []
+    },
+    {
+      "name": "Feast",
+      "category": "database",
+      "difficulty": "intermediate",
+      "importance_score": 0.65,
+      "sources": [
+        "https://shopify.engineering/shopifys-machine-learning-platform-real-time-predictions"
+      ],
+      "definition": "",
+      "evidence_quotes": []
+    },
+    {
+      "name": "Online Inference",
+      "category": "pattern",
+      "difficulty": "intermediate",
+      "importance_score": 0.9,
+      "sources": [
+        "https://shopify.engineering/shopifys-machine-learning-platform-real-time-predictions"
+      ],
+      "definition": "",
+      "evidence_quotes": []
+    },
+    {
+      "name": "Batch Inference",
+      "category": "pattern",
+      "difficulty": "beginner",
+      "importance_score": 0.5,
+      "sources": [
+        "https://shopify.engineering/shopifys-machine-learning-platform-real-time-predictions"
+      ],
+      "definition": "",
+      "evidence_quotes": []
+    },
+    {
+      "name": "Kubernetes",
+      "category": "infra",
+      "difficulty": "intermediate",
+      "importance_score": 0.8,
+      "sources": [
+        "https://shopify.engineering/shopifys-machine-learning-platform-real-time-predictions",
+        "https://shopify.engineering/evolution-product-classification"
+      ],
+      "definition": "",
+      "evidence_quotes": []
+    },
+    {
+      "name": "Google Kubernetes Engine",
+      "category": "infra",
+      "difficulty": "intermediate",
+      "importance_score": 0.7,
+      "sources": [
+        "https://shopify.engineering/shopifys-machine-learning-platform-real-time-predictions"
+      ],
+      "definition": "",
+      "evidence_quotes": []
+    },
+    {
+      "name": "Flink",
+      "category": "infra",
+      "difficulty": "intermediate",
+      "importance_score": 0.6,
+      "sources": [
+        "https://shopify.engineering/shopifys-machine-learning-platform-real-time-predictions"
+      ],
+      "definition": "",
+      "evidence_quotes": []
+    },
+    {
+      "name": "Docker",
+      "category": "infra",
+      "difficulty": "beginner",
+      "importance_score": 0.6,
+      "sources": [
+        "https://shopify.engineering/shopifys-machine-learning-platform-real-time-predictions"
+      ],
+      "definition": "",
+      "evidence_quotes": []
+    },
+    {
+      "name": "Autoscaling",
+      "category": "pattern",
+      "difficulty": "intermediate",
+      "importance_score": 0.7,
+      "sources": [
+        "https://shopify.engineering/shopifys-machine-learning-platform-real-time-predictions"
+      ],
+      "definition": "",
+      "evidence_quotes": []
+    },
+    {
+      "name": "Vision Language Models (VLMs)",
+      "category": "other",
+      "difficulty": "advanced",
+      "importance_score": 0.95,
+      "sources": [
+        "https://shopify.engineering/evolution-product-classification"
+      ],
+      "definition": "",
+      "evidence_quotes": []
+    },
+    {
+      "name": "Shopify Product Taxonomy",
+      "category": "other",
+      "difficulty": "intermediate",
+      "importance_score": 0.9,
+      "sources": [
+        "https://shopify.engineering/evolution-product-classification"
+      ],
+      "definition": "",
+      "evidence_quotes": []
+    },
+    {
+      "name": "Hierarchical Classification",
+      "category": "pattern",
+      "difficulty": "intermediate",
+      "importance_score": 0.85,
+      "sources": [
+        "https://shopify.engineering/evolution-product-classification"
+      ],
+      "definition": "",
+      "evidence_quotes": []
+    },
+    {
+      "name": "Category-Specific Attributes",
+      "category": "pattern",
+      "difficulty": "intermediate",
+      "importance_score": 0.85,
+      "sources": [
+        "https://shopify.engineering/evolution-product-classification"
+      ],
+      "definition": "",
+      "evidence_quotes": []
+    },
+    {
+      "name": "Multi-Modal Understanding",
+      "category": "pattern",
+      "difficulty": "intermediate",
+      "importance_score": 0.8,
+      "sources": [
+        "https://shopify.engineering/evolution-product-classification"
+      ],
+      "definition": "",
+      "evidence_quotes": []
+    },
+    {
+      "name": "Zero-Shot Learning",
+      "category": "pattern",
+      "difficulty": "advanced",
+      "importance_score": 0.8,
+      "sources": [
+        "https://shopify.engineering/evolution-product-classification"
+      ],
+      "definition": "",
+      "evidence_quotes": []
+    },
+    {
+      "name": "Natural Language Reasoning",
+      "category": "pattern",
+      "difficulty": "advanced",
+      "importance_score": 0.8,
+      "sources": [
+        "https://shopify.engineering/evolution-product-classification"
+      ],
+      "definition": "",
+      "evidence_quotes": []
+    },
+    {
+      "name": "NVIDIA GPUs",
+      "category": "infra",
+      "difficulty": "intermediate",
+      "importance_score": 0.75,
+      "sources": [
+        "https://shopify.engineering/evolution-product-classification"
+      ],
+      "definition": "",
+      "evidence_quotes": []
+    },
+    {
+      "name": "FP8 Quantization",
+      "category": "pattern",
+      "difficulty": "advanced",
+      "importance_score": 0.7,
+      "sources": [
+        "https://shopify.engineering/evolution-product-classification"
+      ],
+      "definition": "",
+      "evidence_quotes": []
+    },
+    {
+      "name": "In-Flight Batching",
+      "category": "pattern",
+      "difficulty": "intermediate",
+      "importance_score": 0.7,
+      "sources": [
+        "https://shopify.engineering/evolution-product-classification"
+      ],
+      "definition": "",
+      "evidence_quotes": []
+    },
+    {
+      "name": "Nvidia Dynamo",
+      "category": "infra",
+      "difficulty": "intermediate",
+      "importance_score": 0.7,
+      "sources": [
+        "https://shopify.engineering/evolution-product-classification"
+      ],
+      "definition": "",
+      "evidence_quotes": []
+    },
+    {
+      "name": "KV Cache Optimization",
+      "category": "cache",
+      "difficulty": "intermediate",
+      "importance_score": 0.65,
+      "sources": [
+        "https://shopify.engineering/evolution-product-classification"
+      ],
+      "definition": "",
+      "evidence_quotes": []
+    },
+    {
+      "name": "Dataflow pipeline",
+      "category": "infra",
+      "difficulty": "intermediate",
+      "importance_score": 0.6,
+      "sources": [
+        "https://shopify.engineering/evolution-product-classification"
+      ],
+      "definition": "",
+      "evidence_quotes": []
+    },
+    {
+      "name": "Multi-LLM annotation system",
+      "category": "pattern",
+      "difficulty": "advanced",
+      "importance_score": 0.6,
+      "sources": [
+        "https://shopify.engineering/evolution-product-classification"
+      ],
+      "definition": "",
+      "evidence_quotes": []
+    },
+    {
+      "name": "Data Modeling",
+      "category": "pattern",
+      "difficulty": "intermediate",
+      "importance_score": 0.9,
+      "sources": [
+        "https://shopify.engineering/double-entry-transition-tables-shopify",
+        "https://shopify.engineering/building-commerce-data-models-with-shopifyql"
+      ],
+      "definition": "The process of creating a conceptual representation of data, defining its structure, relationships, and constraints. This article details a specific data model for tracking temporal state changes.",
+      "evidence_quotes": [
+        {
+          "url": "https://shopify.engineering/building-commerce-data-models-with-shopifyql",
+          "text": "In building commerce data models our main focus was allowing business-savvy users to query data in an intuitive way without any SQL expertise."
+        },
+        {
+          "url": "https://shopify.engineering/double-entry-transition-tables-shopify",
+          "text": "We created individual attribute tables for both the Shopify Balance account status and the Shopify account status. An attribute input table must have a specific set of columns: - a partition key that\u2019s common across attribute, which in our case is an account_id - a sort key, generally a transition_at timestamp and an index - an attribute you want to track."
+        }
+      ]
+    },
+    {
+      "name": "ShopifyQL",
+      "category": "other",
+      "difficulty": "intermediate",
+      "importance_score": 0.85,
+      "sources": [
+        "https://shopify.engineering/building-commerce-data-models-with-shopifyql"
+      ],
+      "definition": "A proprietary query language developed by Shopify, designed to simplify data exploration and analysis for business users within the commerce domain.",
+      "evidence_quotes": [
+        {
+          "url": "https://shopify.engineering/building-commerce-data-models-with-shopifyql",
+          "text": "ShopifyQL Notebooks is powered by its very own query language ShopifyQL, and by data models built specifically for commerce."
+        }
+      ]
+    },
+    {
+      "name": "Granularity",
+      "category": "pattern",
+      "difficulty": "intermediate",
+      "importance_score": 0.8,
+      "sources": [
+        "https://shopify.engineering/building-commerce-data-models-with-shopifyql"
+      ],
+      "definition": "The level of detail or specificity in a data model, referring to the time grain (e.g., second, month) or the unit each row represents, which impacts the ability to answer specific business questions.",
+      "evidence_quotes": [
+        {
+          "url": "https://shopify.engineering/building-commerce-data-models-with-shopifyql",
+          "text": "Finally, we had to determine proper granularity for our data model\u2014in other words, what does each row in our data model represent?"
+        }
+      ]
+    },
+    {
+      "name": "Additive Metrics",
+      "category": "pattern",
+      "difficulty": "intermediate",
+      "importance_score": 0.75,
+      "sources": [
+        "https://shopify.engineering/building-commerce-data-models-with-shopifyql"
+      ],
+      "definition": "Metrics that can be summed across different dimensions without double-counting or producing illogical results, simplifying data aggregation and analysis for users.",
+      "evidence_quotes": [
+        {
+          "url": "https://shopify.engineering/building-commerce-data-models-with-shopifyql",
+          "text": "Providing users with fully additive metrics across all dimensions can make exploring datasets easier."
+        }
+      ]
+    },
+    {
+      "name": "Dimensions",
+      "category": "pattern",
+      "difficulty": "beginner",
+      "importance_score": 0.7,
+      "sources": [
+        "https://shopify.engineering/building-commerce-data-models-with-shopifyql"
+      ],
+      "definition": "Attributes or categories within a data model that allow users to slice, dice, and drill down into data to gain insights, such as 'sales channel' or 'product title'.",
+      "evidence_quotes": [
+        {
+          "url": "https://shopify.engineering/building-commerce-data-models-with-shopifyql",
+          "text": "For example, we provided merchants with dimensions like \u201csales channel\u201d and \u201cproduct title\u201d so they can drill down on things that matter most to them."
+        }
+      ]
+    },
+    {
+      "name": "Data Stories",
+      "category": "other",
+      "difficulty": "beginner",
+      "importance_score": 0.65,
+      "sources": [
+        "https://shopify.engineering/building-commerce-data-models-with-shopifyql"
+      ],
+      "definition": "A method of communicating data insights and findings in a narrative format, often incorporating visualizations and explanations, to help users understand business metric changes.",
+      "evidence_quotes": [
+        {
+          "url": "https://shopify.engineering/building-commerce-data-models-with-shopifyql",
+          "text": "which enables merchants to explore how their business metrics are changing, understand the reasons for the change, and share their findings as rich data stories."
+        }
+      ]
+    },
+    {
+      "name": "Data Quality",
+      "category": "pattern",
+      "difficulty": "beginner",
+      "importance_score": 0.6,
+      "sources": [
+        "https://shopify.engineering/building-commerce-data-models-with-shopifyql"
+      ],
+      "definition": "The measure of the condition of data, ensuring it is fit for its intended use, which involves evaluating its accuracy, completeness, and consistency.",
+      "evidence_quotes": [
+        {
+          "url": "https://shopify.engineering/building-commerce-data-models-with-shopifyql",
+          "text": "Assess Data Quality and Consistency"
+        }
+      ]
+    },
+    {
+      "name": "Data Consistency",
+      "category": "pattern",
+      "difficulty": "beginner",
+      "importance_score": 0.6,
+      "sources": [
+        "https://shopify.engineering/building-commerce-data-models-with-shopifyql"
+      ],
+      "definition": "Ensuring that data values are uniform and do not contradict each other across different datasets or within the same dataset, crucial for reliable analysis.",
+      "evidence_quotes": [
+        {
+          "url": "https://shopify.engineering/building-commerce-data-models-with-shopifyql",
+          "text": "Assess Data Quality and Consistency"
+        }
+      ]
+    },
+    {
+      "name": "Querying",
+      "category": "pattern",
+      "difficulty": "beginner",
+      "importance_score": 0.55,
+      "sources": [
+        "https://shopify.engineering/building-commerce-data-models-with-shopifyql"
+      ],
+      "definition": "The process of retrieving specific information from a data store or data model based on defined criteria, used here to explore business metrics.",
+      "evidence_quotes": [
+        {
+          "url": "https://shopify.engineering/building-commerce-data-models-with-shopifyql",
+          "text": "enables merchants to explore how their business metrics are changing, understand the reasons for the change"
+        }
+      ]
+    },
+    {
+      "name": "BigQuery",
+      "category": "infra",
+      "difficulty": "intermediate",
+      "importance_score": 0.5,
+      "sources": [
+        "https://shopify.engineering/building-commerce-data-models-with-shopifyql"
+      ],
+      "definition": "A fully managed, serverless data warehouse that enables super-fast SQL queries using the processing power of Google's infrastructure.",
+      "evidence_quotes": [
+        {
+          "url": "https://shopify.engineering/building-commerce-data-models-with-shopifyql",
+          "text": "After that, you can easily load it into the data platform of your choice such as BigQuery or Trino."
+        }
+      ]
+    },
+    {
+      "name": "Trino",
+      "category": "infra",
+      "difficulty": "intermediate",
+      "importance_score": 0.5,
+      "sources": [
+        "https://shopify.engineering/building-commerce-data-models-with-shopifyql"
+      ],
+      "definition": "A distributed SQL query engine designed for running interactive analytic queries against data sources of all sizes, from gigabytes to petabytes.",
+      "evidence_quotes": [
+        {
+          "url": "https://shopify.engineering/building-commerce-data-models-with-shopifyql",
+          "text": "After that, you can easily load it into the data platform of your choice such as BigQuery or Trino."
+        }
+      ]
+    },
+    {
+      "name": "Datadog",
+      "category": "other",
+      "difficulty": "beginner",
+      "importance_score": 0.9,
+      "sources": [
+        "https://shopify.engineering/export-datadog-metrics-in-jupyter-notebooks"
+      ],
+      "definition": "A monitoring and analytics platform used for collecting and visualizing metrics from various sources.",
+      "evidence_quotes": [
+        {
+          "url": "https://shopify.engineering/export-datadog-metrics-in-jupyter-notebooks",
+          "text": "Datadog has a limited set of visualizations that can be built and it doesn't have the tooling to perform more complex analysis"
+        }
+      ]
+    },
+    {
+      "name": "REST API",
+      "category": "infra",
+      "difficulty": "intermediate",
+      "importance_score": 0.9,
+      "sources": [
+        "https://shopify.engineering/export-datadog-metrics-in-jupyter-notebooks"
+      ],
+      "definition": "An architectural style for designing networked applications that uses HTTP requests to access and manipulate data. It's commonly used for integrating different software systems.",
+      "evidence_quotes": [
+        {
+          "url": "https://shopify.engineering/export-datadog-metrics-in-jupyter-notebooks",
+          "text": "Datadog has a REST API which we\u2019ll use to extract data from."
+        }
+      ]
+    },
+    {
+      "name": "Jupyter Notebooks",
+      "category": "infra",
+      "difficulty": "beginner",
+      "importance_score": 0.8,
+      "sources": [
+        "https://shopify.engineering/export-datadog-metrics-in-jupyter-notebooks"
+      ],
+      "definition": "An open-source web application that allows users to create and share documents containing live code, equations, visualizations, and narrative text, commonly used for data analysis and scientific computing.",
+      "evidence_quotes": [
+        {
+          "url": "https://shopify.engineering/export-datadog-metrics-in-jupyter-notebooks",
+          "text": "For the purposes of this blog, we\u2019ll be running our analysis in Jupyter notebooks."
+        }
+      ]
+    },
+    {
+      "name": "API Keys",
+      "category": "infra",
+      "difficulty": "beginner",
+      "importance_score": 0.7,
+      "sources": [
+        "https://shopify.engineering/export-datadog-metrics-in-jupyter-notebooks"
+      ],
+      "definition": "Secret tokens used to authenticate requests to an API, granting access to specific resources or functionalities.",
+      "evidence_quotes": [
+        {
+          "url": "https://shopify.engineering/export-datadog-metrics-in-jupyter-notebooks",
+          "text": "You\u2019ll need credentials (an API key and an APP key) to interact with the datadog API."
+        }
+      ]
+    },
+    {
+      "name": "Metrics",
+      "category": "other",
+      "difficulty": "beginner",
+      "importance_score": 0.7,
+      "sources": [
+        "https://shopify.engineering/export-datadog-metrics-in-jupyter-notebooks"
+      ],
+      "definition": "Quantifiable measurements used to track and assess the status, performance, or health of a system or process.",
+      "evidence_quotes": [
+        {
+          "url": "https://shopify.engineering/export-datadog-metrics-in-jupyter-notebooks",
+          "text": "Is there a way to extract Datadog metrics in Python for in-depth analysis?"
+        }
+      ]
+    },
+    {
+      "name": "Time-series data",
+      "category": "other",
+      "difficulty": "intermediate",
+      "importance_score": 0.7,
+      "sources": [
+        "https://shopify.engineering/export-datadog-metrics-in-jupyter-notebooks"
+      ],
+      "definition": "A sequence of data points indexed in time order, often used to track changes and trends over time.",
+      "evidence_quotes": [
+        {
+          "url": "https://shopify.engineering/export-datadog-metrics-in-jupyter-notebooks",
+          "text": "Specify the parameters for time-series data extraction."
+        }
+      ]
+    },
+    {
+      "name": "API Rate Limiting",
+      "category": "pattern",
+      "difficulty": "intermediate",
+      "importance_score": 0.6,
+      "sources": [
+        "https://shopify.engineering/export-datadog-metrics-in-jupyter-notebooks"
+      ],
+      "definition": "A mechanism used to control the number of requests a client can make to an API within a specific time period, preventing abuse and ensuring service availability.",
+      "evidence_quotes": [
+        {
+          "url": "https://shopify.engineering/export-datadog-metrics-in-jupyter-notebooks",
+          "text": "One thing to keep in mind is that Datadog has a rate limit of API requests."
+        }
+      ]
+    },
+    {
+      "name": "Data Granularity",
+      "category": "pattern",
+      "difficulty": "intermediate",
+      "importance_score": 0.6,
+      "sources": [
+        "https://shopify.engineering/export-datadog-metrics-in-jupyter-notebooks"
+      ],
+      "definition": "The level of detail or precision in a dataset. Higher granularity means more detailed data, while lower granularity means more aggregated or summarized data.",
+      "evidence_quotes": [
+        {
+          "url": "https://shopify.engineering/export-datadog-metrics-in-jupyter-notebooks",
+          "text": "Datadog dashboards have a fixed width for the visualizations, which means that checking metrics across a larger time frame will make the metric data less granular."
+        }
+      ]
+    },
+    {
+      "name": "Dataframe",
+      "category": "other",
+      "difficulty": "beginner",
+      "importance_score": 0.5,
+      "sources": [
+        "https://shopify.engineering/export-datadog-metrics-in-jupyter-notebooks"
+      ],
+      "definition": "A two-dimensional, size-mutable, potentially heterogeneous tabular data structure with labeled axes (rows and columns), commonly used in data analysis libraries like Pandas.",
+      "evidence_quotes": [
+        {
+          "url": "https://shopify.engineering/export-datadog-metrics-in-jupyter-notebooks",
+          "text": "Lastly, convert the lists to a dataframe and return it:"
+        }
+      ]
+    },
+    {
+      "name": "Data Visualization",
+      "category": "pattern",
+      "difficulty": "beginner",
+      "importance_score": 0.5,
+      "sources": [
+        "https://shopify.engineering/export-datadog-metrics-in-jupyter-notebooks"
+      ],
+      "definition": "The graphical representation of data to help understand trends, outliers, and patterns within the data.",
+      "evidence_quotes": [
+        {
+          "url": "https://shopify.engineering/export-datadog-metrics-in-jupyter-notebooks",
+          "text": "Now, we can use this to visualize data using any tool we want."
+        }
+      ]
+    },
+    {
+      "name": "Double Entry Transition Tables",
+      "category": "pattern",
+      "difficulty": "intermediate",
+      "importance_score": 0.95,
+      "sources": [
+        "https://shopify.engineering/double-entry-transition-tables-shopify"
+      ],
+      "definition": "A data presentation format that tracks changes in attributes of entities over time by outputting two rows for each state change, including a 'net_change' column, which simplifies queries and reduces maintenance.",
+      "evidence_quotes": [
+        {
+          "url": "https://shopify.engineering/double-entry-transition-tables-shopify",
+          "text": "Enter double entry transition tables."
+        }
+      ]
+    },
+    {
+      "name": "Net Change Column",
+      "category": "pattern",
+      "difficulty": "intermediate",
+      "importance_score": 0.9,
+      "sources": [
+        "https://shopify.engineering/double-entry-transition-tables-shopify"
+      ],
+      "definition": "A column in double entry transition tables that indicates the direction of a state change, typically +1 for a new state and -1 for a previous state. Its additive nature allows for easy aggregation of current states.",
+      "evidence_quotes": [
+        {
+          "url": "https://shopify.engineering/double-entry-transition-tables-shopify",
+          "text": "net_change column, but it essentially works like this: if you want to track the status of something over time, every time the status changes from one state to another or vice versa, there will be two entries: - net_change = -1: this row is the previous state - net_change = +1: this row is the new state"
+        }
+      ]
+    },
+    {
+      "name": "Data Pipeline",
+      "category": "infra",
+      "difficulty": "intermediate",
+      "importance_score": 0.85,
+      "sources": [
+        "https://shopify.engineering/double-entry-transition-tables-shopify"
+      ],
+      "definition": "A series of data processing steps designed to ingest, transform, and load data. In this context, it involves preparing input tables and generating the double entry transition table.",
+      "evidence_quotes": [
+        {
+          "url": "https://shopify.engineering/double-entry-transition-tables-shopify",
+          "text": "In this post, we\u2019ll explore how we built a data pipeline using double entry transition tables to answer our question: how many Shopify merchants are using Shopify Balance?"
+        }
+      ]
+    },
+    {
+      "name": "PySpark",
+      "category": "infra",
+      "difficulty": "intermediate",
+      "importance_score": 0.8,
+      "sources": [
+        "https://shopify.engineering/double-entry-transition-tables-shopify"
+      ],
+      "definition": "A Python API for Apache Spark, used here for data transformation tasks, such as converting standard transition tables into attribute tables and creating the final double entry transition table.",
+      "evidence_quotes": [
+        {
+          "url": "https://shopify.engineering/double-entry-transition-tables-shopify",
+          "text": "Using a standard transition table, we can convert it to an attribute with a simple PySpark job:"
+        }
+      ]
+    },
+    {
+      "name": "Attribute Tables",
+      "category": "database",
+      "difficulty": "intermediate",
+      "importance_score": 0.75,
+      "sources": [
+        "https://shopify.engineering/double-entry-transition-tables-shopify"
+      ],
+      "definition": "Intermediate tables that store specific attributes of entities over time, serving as inputs for constructing more complex transition tables like the double entry transition table.",
+      "evidence_quotes": [
+        {
+          "url": "https://shopify.engineering/double-entry-transition-tables-shopify",
+          "text": "First, we need to prepare individual attribute tables to be used as inputs for our double entry transition data infrastructure."
+        }
+      ]
+    },
+    {
+      "name": "Partition Key",
+      "category": "database",
+      "difficulty": "intermediate",
+      "importance_score": 0.7,
+      "sources": [
+        "https://shopify.engineering/double-entry-transition-tables-shopify"
+      ],
+      "definition": "A key used to distribute data across different partitions or nodes in a distributed system. In this context, 'account_id' serves as the partition key for grouping related data.",
+      "evidence_quotes": [
+        {
+          "url": "https://shopify.engineering/double-entry-transition-tables-shopify",
+          "text": "a partition key that\u2019s common across attribute, which in our case is an account_id"
+        }
+      ]
+    },
+    {
+      "name": "Sort Key",
+      "category": "database",
+      "difficulty": "intermediate",
+      "importance_score": 0.7,
+      "sources": [
+        "https://shopify.engineering/double-entry-transition-tables-shopify"
+      ],
+      "definition": "A key used to order data within a partition. Here, 'transition_at' timestamp and 'index' are used to ensure chronological ordering and handle ties for events.",
+      "evidence_quotes": [
+        {
+          "url": "https://shopify.engineering/double-entry-transition-tables-shopify",
+          "text": "a sort key, generally a transition_at timestamp and an index"
+        }
+      ]
+    },
+    {
+      "name": "State Changes",
+      "category": "pattern",
+      "difficulty": "beginner",
+      "importance_score": 0.9,
+      "sources": [
+        "https://shopify.engineering/double-entry-transition-tables-shopify"
+      ],
+      "definition": "The modification of an entity's attributes from one value to another over time. Tracking these changes is the primary goal of the double entry transition tables.",
+      "evidence_quotes": [
+        {
+          "url": "https://shopify.engineering/double-entry-transition-tables-shopify",
+          "text": "track the state changes of both accounts simultaneously"
+        }
+      ]
+    },
+    {
+      "name": "SQL",
+      "category": "infra",
+      "difficulty": "beginner",
+      "importance_score": 0.6,
+      "sources": [
+        "https://shopify.engineering/double-entry-transition-tables-shopify"
+      ],
+      "definition": "Structured Query Language, a standard language for managing and querying relational databases. It is used here for querying the generated transition tables.",
+      "evidence_quotes": [
+        {
+          "url": "https://shopify.engineering/double-entry-transition-tables-shopify",
+          "text": "simplifying our queries and reducing long term maintenance on our reporting."
+        }
+      ]
+    },
+    {
+      "name": "ETL",
+      "category": "pattern",
+      "difficulty": "intermediate",
+      "importance_score": 0.7,
+      "sources": [
+        "https://shopify.engineering/double-entry-transition-tables-shopify"
+      ],
+      "definition": "Extract, Transform, Load. A process for moving data from source systems, transforming it into a usable format, and loading it into a destination system. The described pipeline follows this pattern.",
+      "evidence_quotes": [
+        {
+          "url": "https://shopify.engineering/double-entry-transition-tables-shopify",
+          "text": "we need to prepare individual attribute tables to be used as inputs for our double entry transition data infrastructure. ... This system (called build merge state transitions) takes our individual attribute tables and first generates a combined set of unique rows... It then creates one column per attribute... This table is then run through another process that creates our net_change column and assigns a +1 value to all current rows. It also inserts a second row for each state change with a net_change value of -1."
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "source": "Replication",
+      "target": "Kafka",
+      "relation_type": "related_to",
+      "confidence": 0.7
+    },
+    {
+      "source": "Transformer architecture",
+      "target": "Large Language Models (LLMs)",
+      "relation_type": "part_of",
+      "confidence": 0.95
+    },
+    {
+      "source": "Attention mechanism",
+      "target": "Transformer architecture",
+      "relation_type": "part_of",
+      "confidence": 0.9
+    },
+    {
+      "source": "MLP blocks",
+      "target": "Transformer architecture",
+      "relation_type": "part_of",
+      "confidence": 0.9
+    },
+    {
+      "source": "Multihead attention",
+      "target": "Attention mechanism",
+      "relation_type": "related_to",
+      "confidence": 0.85
+    },
+    {
+      "source": "Query matrix",
+      "target": "Attention mechanism",
+      "relation_type": "part_of",
+      "confidence": 0.85
+    },
+    {
+      "source": "Key matrix",
+      "target": "Attention mechanism",
+      "relation_type": "part_of",
+      "confidence": 0.85
+    },
+    {
+      "source": "Value matrix",
+      "target": "Attention mechanism",
+      "relation_type": "part_of",
+      "confidence": 0.85
+    },
+    {
+      "source": "Hidden size",
+      "target": "Transformer architecture",
+      "relation_type": "part_of",
+      "confidence": 0.75
+    },
+    {
+      "source": "MLP-to-attention ratio",
+      "target": "Transformer architecture",
+      "relation_type": "part_of",
+      "confidence": 0.75
+    },
+    {
+      "source": "Grouped-query attention (GQA)",
+      "target": "Multihead attention",
+      "relation_type": "related_to",
+      "confidence": 0.8
+    },
+    {
+      "source": "Chinchilla law",
+      "target": "Large Language Models (LLMs)",
+      "relation_type": "related_to",
+      "confidence": 0.8
+    },
+    {
+      "source": "Pareto-optimal architectures",
+      "target": "Large Language Models (LLMs)",
+      "relation_type": "related_to",
+      "confidence": 0.7
+    },
+    {
+      "source": "Key-value cache",
+      "target": "Hidden size",
+      "relation_type": "depends_on",
+      "confidence": 0.7
+    },
+    {
+      "source": "vLLM",
+      "target": "Large Language Models (LLMs)",
+      "relation_type": "related_to",
+      "confidence": 0.6
+    },
+    {
+      "source": "Ray",
+      "target": "Merlin",
+      "relation_type": "related_to",
+      "confidence": 0.9
+    },
+    {
+      "source": "Merlin Online Inference",
+      "target": "Merlin",
+      "relation_type": "part_of",
+      "confidence": 0.95
+    },
+    {
+      "source": "Model Registry",
+      "target": "Merlin",
+      "relation_type": "part_of",
+      "confidence": 0.85
+    },
+    {
+      "source": "Comet ML",
+      "target": "Model Registry",
+      "relation_type": "related_to",
+      "confidence": 0.8
+    },
+    {
+      "source": "Merlin Pipelines",
+      "target": "Merlin",
+      "relation_type": "part_of",
+      "confidence": 0.9
+    },
+    {
+      "source": "Pano Feature Store",
+      "target": "Merlin",
+      "relation_type": "part_of",
+      "confidence": 0.8
+    },
+    {
+      "source": "Feast",
+      "target": "Pano Feature Store",
+      "relation_type": "related_to",
+      "confidence": 0.85
+    },
+    {
+      "source": "Online Inference",
+      "target": "Merlin Online Inference",
+      "relation_type": "related_to",
+      "confidence": 0.9
+    },
+    {
+      "source": "Batch Inference",
+      "target": "Online Inference",
+      "relation_type": "related_to",
+      "confidence": 0.6
+    },
+    {
+      "source": "Kubernetes",
+      "target": "Merlin",
+      "relation_type": "related_to",
+      "confidence": 0.85
+    },
+    {
+      "source": "Kubernetes",
+      "target": "Vision Language Models (VLMs)",
+      "relation_type": "related_to",
+      "confidence": 0.8
+    },
+    {
+      "source": "Kubernetes",
+      "target": "Kubernetes",
+      "relation_type": "related_to",
+      "confidence": 1.0
+    },
+    {
+      "source": "Google Kubernetes Engine",
+      "target": "Kubernetes",
+      "relation_type": "part_of",
+      "confidence": 0.9
+    },
+    {
+      "source": "Flink",
+      "target": "Merlin",
+      "relation_type": "related_to",
+      "confidence": 0.7
+    },
+    {
+      "source": "Docker",
+      "target": "Merlin",
+      "relation_type": "related_to",
+      "confidence": 0.8
+    },
+    {
+      "source": "Autoscaling",
+      "target": "Merlin",
+      "relation_type": "related_to",
+      "confidence": 0.75
+    },
+    {
+      "source": "Vision Language Models (VLMs)",
+      "target": "Shopify Product Taxonomy",
+      "relation_type": "related_to",
+      "confidence": 0.95
+    },
+    {
+      "source": "Vision Language Models (VLMs)",
+      "target": "Large Language Models (LLMs)",
+      "relation_type": "related_to",
+      "confidence": 0.9
+    },
+    {
+      "source": "Hierarchical Classification",
+      "target": "Shopify Product Taxonomy",
+      "relation_type": "part_of",
+      "confidence": 0.9
+    },
+    {
+      "source": "Category-Specific Attributes",
+      "target": "Shopify Product Taxonomy",
+      "relation_type": "part_of",
+      "confidence": 0.9
+    },
+    {
+      "source": "Multi-Modal Understanding",
+      "target": "Vision Language Models (VLMs)",
+      "relation_type": "depends_on",
+      "confidence": 0.85
+    },
+    {
+      "source": "Zero-Shot Learning",
+      "target": "Vision Language Models (VLMs)",
+      "relation_type": "related_to",
+      "confidence": 0.8
+    },
+    {
+      "source": "Natural Language Reasoning",
+      "target": "Vision Language Models (VLMs)",
+      "relation_type": "related_to",
+      "confidence": 0.8
+    },
+    {
+      "source": "NVIDIA GPUs",
+      "target": "Vision Language Models (VLMs)",
+      "relation_type": "related_to",
+      "confidence": 0.75
+    },
+    {
+      "source": "FP8 Quantization",
+      "target": "Vision Language Models (VLMs)",
+      "relation_type": "related_to",
+      "confidence": 0.7
+    },
+    {
+      "source": "In-Flight Batching",
+      "target": "Nvidia Dynamo",
+      "relation_type": "related_to",
+      "confidence": 0.7
+    },
+    {
+      "source": "Nvidia Dynamo",
+      "target": "Vision Language Models (VLMs)",
+      "relation_type": "related_to",
+      "confidence": 0.7
+    },
+    {
+      "source": "KV Cache Optimization",
+      "target": "Vision Language Models (VLMs)",
+      "relation_type": "related_to",
+      "confidence": 0.65
+    },
+    {
+      "source": "Dataflow pipeline",
+      "target": "Vision Language Models (VLMs)",
+      "relation_type": "related_to",
+      "confidence": 0.6
+    },
+    {
+      "source": "Multi-LLM annotation system",
+      "target": "Vision Language Models (VLMs)",
+      "relation_type": "related_to",
+      "confidence": 0.6
+    },
+    {
+      "source": "Data Modeling",
+      "target": "ShopifyQL",
+      "relation_type": "related_to",
+      "confidence": 0.7
+    },
+    {
+      "source": "ShopifyQL",
+      "target": "Data Modeling",
+      "relation_type": "depends_on",
+      "confidence": 0.8
+    },
+    {
+      "source": "Granularity",
+      "target": "Data Modeling",
+      "relation_type": "part_of",
+      "confidence": 0.9
+    },
+    {
+      "source": "Additive Metrics",
+      "target": "Data Modeling",
+      "relation_type": "part_of",
+      "confidence": 0.85
+    },
+    {
+      "source": "Dimensions",
+      "target": "Data Modeling",
+      "relation_type": "part_of",
+      "confidence": 0.9
+    },
+    {
+      "source": "Data Stories",
+      "target": "Querying",
+      "relation_type": "related_to",
+      "confidence": 0.7
+    },
+    {
+      "source": "Data Quality",
+      "target": "Data Modeling",
+      "relation_type": "related_to",
+      "confidence": 0.7
+    },
+    {
+      "source": "Data Consistency",
+      "target": "Data Modeling",
+      "relation_type": "related_to",
+      "confidence": 0.7
+    },
+    {
+      "source": "Querying",
+      "target": "Data Modeling",
+      "relation_type": "depends_on",
+      "confidence": 0.8
+    },
+    {
+      "source": "BigQuery",
+      "target": "Data Modeling",
+      "relation_type": "related_to",
+      "confidence": 0.6
+    },
+    {
+      "source": "Trino",
+      "target": "Data Modeling",
+      "relation_type": "related_to",
+      "confidence": 0.6
+    },
+    {
+      "source": "Datadog",
+      "target": "REST API",
+      "relation_type": "depends_on",
+      "confidence": 0.9
+    },
+    {
+      "source": "Jupyter Notebooks",
+      "target": "Datadog",
+      "relation_type": "related_to",
+      "confidence": 0.8
+    },
+    {
+      "source": "API Keys",
+      "target": "REST API",
+      "relation_type": "prerequisite",
+      "confidence": 0.9
+    },
+    {
+      "source": "Metrics",
+      "target": "Datadog",
+      "relation_type": "part_of",
+      "confidence": 0.85
+    },
+    {
+      "source": "Time-series data",
+      "target": "Datadog",
+      "relation_type": "related_to",
+      "confidence": 0.8
+    },
+    {
+      "source": "API Rate Limiting",
+      "target": "REST API",
+      "relation_type": "related_to",
+      "confidence": 0.75
+    },
+    {
+      "source": "Data Granularity",
+      "target": "Datadog",
+      "relation_type": "related_to",
+      "confidence": 0.75
+    },
+    {
+      "source": "Dataframe",
+      "target": "Datadog",
+      "relation_type": "related_to",
+      "confidence": 0.7
+    },
+    {
+      "source": "Data Visualization",
+      "target": "Datadog",
+      "relation_type": "related_to",
+      "confidence": 0.7
+    },
+    {
+      "source": "Double Entry Transition Tables",
+      "target": "Data Modeling",
+      "relation_type": "part_of",
+      "confidence": 0.9
+    },
+    {
+      "source": "Net Change Column",
+      "target": "Double Entry Transition Tables",
+      "relation_type": "part_of",
+      "confidence": 0.95
+    },
+    {
+      "source": "Net Change Column",
+      "target": "Additive Metrics",
+      "relation_type": "related_to",
+      "confidence": 0.7
+    },
+    {
+      "source": "Data Pipeline",
+      "target": "Double Entry Transition Tables",
+      "relation_type": "related_to",
+      "confidence": 0.85
+    },
+    {
+      "source": "PySpark",
+      "target": "Data Pipeline",
+      "relation_type": "part_of",
+      "confidence": 0.8
+    },
+    {
+      "source": "PySpark",
+      "target": "Attribute Tables",
+      "relation_type": "related_to",
+      "confidence": 0.8
+    },
+    {
+      "source": "Attribute Tables",
+      "target": "Double Entry Transition Tables",
+      "relation_type": "prerequisite",
+      "confidence": 0.85
+    },
+    {
+      "source": "Partition Key",
+      "target": "Data Modeling",
+      "relation_type": "part_of",
+      "confidence": 0.75
+    },
+    {
+      "source": "Partition Key",
+      "target": "Attribute Tables",
+      "relation_type": "part_of",
+      "confidence": 0.7
+    },
+    {
+      "source": "Sort Key",
+      "target": "Data Modeling",
+      "relation_type": "part_of",
+      "confidence": 0.75
+    },
+    {
+      "source": "Sort Key",
+      "target": "Attribute Tables",
+      "relation_type": "part_of",
+      "confidence": 0.7
+    },
+    {
+      "source": "State Changes",
+      "target": "Double Entry Transition Tables",
+      "relation_type": "related_to",
+      "confidence": 0.9
+    },
+    {
+      "source": "SQL",
+      "target": "Double Entry Transition Tables",
+      "relation_type": "related_to",
+      "confidence": 0.6
+    },
+    {
+      "source": "ETL",
+      "target": "Data Pipeline",
+      "relation_type": "related_to",
+      "confidence": 0.75
+    }
+  ]
+}
