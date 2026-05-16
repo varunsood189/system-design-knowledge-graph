@@ -99,8 +99,18 @@ Record a short walkthrough: ingest two engineering blog URLs, show graph growth 
 
 ## Assignment coverage
 
+
 - Multi-step agentic pipeline (3 LLM calls + tools)
 - Pydantic validation with `reasoning`, `confidence`, `self_check`
 - Knowledge graph persistence (`data/graph.json`)
 - Contextual recommendations (prerequisites, learn-next)
 - Not a summarizer / stock / crypto tool
+
+
+
+
+https://chatgpt.com/share/6a07de7c-95e4-8321-8c32-6f5c48baea4d
+
+
+
+
