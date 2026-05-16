@@ -106,11 +106,8 @@ Record a short walkthrough: ingest two engineering blog URLs, show graph growth 
 - Contextual recommendations (prerequisites, learn-next)
 - Not a summarizer / stock / crypto tool
 
-
-
-
-https://chatgpt.com/share/6a07de7c-95e4-8321-8c32-6f5c48baea4d
-
+chatgpt reply:
+https://github.com/varunsood189/system-design-knowledge-graph/blob/main/chat-gpt-reply.md
 
 
 
