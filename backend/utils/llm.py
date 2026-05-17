@@ -1,14 +1,17 @@
-"""Gemini client with optional LLM Gateway fallback."""
+"""Gemini client with optional LLM Gateway V2 (preferred) or V1 completions fallback."""
+
+from __future__ import annotations
 
 import json
 import os
 import re
 from typing import Any
-from urllib.parse import quote
 
 import google.generativeai as genai
 import httpx
 from dotenv import load_dotenv
+
+from backend.utils.gateway_v2 import GatewayV2Client
 
 load_dotenv()
 
@@ -26,7 +29,8 @@ def backend_name() -> str:
     if (os.getenv("GEMINI_API_KEY") or "").strip():
         return "gemini"
     if (os.getenv("LLM_BASE_URL") or "").strip():
-        return "gateway"
+        api = (os.getenv("LLM_GATEWAY_API") or "v2").strip().lower()
+        return f"gateway-{api}"
     return "none"
 
 
@@ -77,7 +81,59 @@ def _generate_gemini(prompt: str, user_content: str, schema_hint: str | None = N
     return response.text
 
 
-def _generate_gateway(prompt: str, user_content: str, schema: dict[str, Any] | None = None) -> str:
+def _gateway_use_v2() -> bool:
+    return (os.getenv("LLM_GATEWAY_API") or "v2").strip().lower() != "v1"
+
+
+def _env_bool(name: str, default: bool) -> bool:
+    raw = (os.getenv(name) or "").strip().lower()
+    if not raw:
+        return default
+    return raw in ("1", "true", "yes", "on")
+
+
+def _reply_to_json_text(reply: dict[str, Any]) -> str:
+    parsed = reply.get("parsed")
+    if isinstance(parsed, dict):
+        return json.dumps(parsed)
+    text = reply.get("text")
+    if isinstance(text, str) and text.strip():
+        return text
+    raise RuntimeError("Gateway response missing JSON content")
+
+
+def _generate_gateway_v2(prompt: str, user_content: str, schema: dict[str, Any] | None = None) -> str:
+    base = (os.getenv("LLM_BASE_URL") or "http://127.0.0.1:8100").rstrip("/")
+    model = os.getenv("LLM_MODEL", DEFAULT_MODEL)
+    provider = (os.getenv("LLM_PROVIDER") or "").strip() or None
+    max_tokens = int(os.getenv("LLM_MAX_TOKENS", "8192"))
+
+    response_format = None
+    if schema:
+        response_format = {
+            "type": "json_schema",
+            "schema": schema,
+            "name": "Response",
+            "strict": True,
+        }
+
+    client = GatewayV2Client(base_url=base)
+    reply = client.chat(
+        messages=[{"role": "user", "content": user_content.strip()}],
+        system=prompt.strip(),
+        model=model,
+        provider=provider,
+        max_tokens=max_tokens,
+        temperature=0.35,
+        cache_system=_env_bool("LLM_CACHE_SYSTEM", True),
+        reasoning=(os.getenv("LLM_REASONING") or "off").strip() or "off",
+        response_format=response_format,
+    )
+    return _reply_to_json_text(reply)
+
+
+def _generate_gateway_v1(prompt: str, user_content: str, schema: dict[str, Any] | None = None) -> str:
+    """Legacy OpenAI-style /v1/chat/completions (Gateway V1 on port 8099)."""
     base = (os.getenv("LLM_BASE_URL") or "http://127.0.0.1:8100").rstrip("/")
     model = os.getenv("LLM_MODEL", DEFAULT_MODEL)
     api_key = os.getenv("LLM_API_KEY") or os.getenv("OPENAI_API_KEY")
@@ -120,6 +176,12 @@ def _generate_gateway(prompt: str, user_content: str, schema: dict[str, Any] | N
     if isinstance(parsed, dict):
         return json.dumps(parsed)
     raise RuntimeError("Gateway response missing JSON content")
+
+
+def _generate_gateway(prompt: str, user_content: str, schema: dict[str, Any] | None = None) -> str:
+    if _gateway_use_v2():
+        return _generate_gateway_v2(prompt, user_content, schema)
+    return _generate_gateway_v1(prompt, user_content, schema)
 
 
 def generate_json(

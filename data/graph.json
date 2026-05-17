@@ -8,8 +8,8 @@
     },
     {
       "url": "https://shopify.engineering/shopifys-machine-learning-platform-real-time-predictions",
-      "title": "shopify.engineering",
-      "ingested_at": "",
+      "title": "Unlocking Real-time Predictions with Shopify's Machine Learning Platform - Shopify",
+      "ingested_at": "2026-05-17T01:30:18.360525+00:00",
       "concept_count": 15
     },
     {
@@ -35,6 +35,12 @@
       "title": "Double Entry Transition Tables: How We Track State Changes At Shopify - Shopify",
       "ingested_at": "2026-05-15T17:24:56.960535+00:00",
       "concept_count": 11
+    },
+    {
+      "url": "https://machinelearning.apple.com/research/large-scale-rnns",
+      "title": "ParaRNN: Large-Scale Nonlinear RNNs, Trainable in Parallel",
+      "ingested_at": "2026-05-16T09:34:14.600134+00:00",
+      "concept_count": 15
     }
   ],
   "nodes": [
@@ -75,10 +81,16 @@
       "difficulty": "intermediate",
       "importance_score": 0.9,
       "sources": [
-        "https://www.amazon.science/blog/making-llms-faster-without-sacrificing-accuracy"
+        "https://www.amazon.science/blog/making-llms-faster-without-sacrificing-accuracy",
+        "https://machinelearning.apple.com/research/large-scale-rnns"
       ],
-      "definition": "",
-      "evidence_quotes": []
+      "definition": "AI models trained on vast amounts of text data, capable of understanding and generating human-like language. The ParaRNN framework aims to make training large RNNs competitive for LLM applications.",
+      "evidence_quotes": [
+        {
+          "url": "https://machinelearning.apple.com/research/large-scale-rnns",
+          "text": "enabling large-scale training for the first time and widening the set of architecture choices available to practitioners in designing LLMs, particularly for resource-constrained deployment."
+        }
+      ]
     },
     {
       "name": "Transformer architecture",
@@ -242,8 +254,13 @@
       "sources": [
         "https://shopify.engineering/shopifys-machine-learning-platform-real-time-predictions"
       ],
-      "definition": "",
-      "evidence_quotes": []
+      "definition": "Shopify's machine learning platform designed to support varying requirements for machine learning workflows, including real-time predictions.",
+      "evidence_quotes": [
+        {
+          "url": "https://shopify.engineering/shopifys-machine-learning-platform-real-time-predictions",
+          "text": "In 2022, we shipped Merlin, Shopify\u2019s new and improved machine learning platform built on Ray."
+        }
+      ]
     },
     {
       "name": "Ray",
@@ -253,8 +270,13 @@
       "sources": [
         "https://shopify.engineering/shopifys-machine-learning-platform-real-time-predictions"
       ],
-      "definition": "",
-      "evidence_quotes": []
+      "definition": "A framework used as the foundation for Shopify's Merlin machine learning platform, supporting its flexible architecture.",
+      "evidence_quotes": [
+        {
+          "url": "https://shopify.engineering/shopifys-machine-learning-platform-real-time-predictions",
+          "text": "built on Ray"
+        }
+      ]
     },
     {
       "name": "Merlin Online Inference",
@@ -264,8 +286,13 @@
       "sources": [
         "https://shopify.engineering/shopifys-machine-learning-platform-real-time-predictions"
       ],
-      "definition": "",
-      "evidence_quotes": []
+      "definition": "A component of the Merlin platform enabling the deployment and serving of machine learning models for real-time predictions at scale.",
+      "evidence_quotes": [
+        {
+          "url": "https://shopify.engineering/shopifys-machine-learning-platform-real-time-predictions",
+          "text": "Merlin Online Inference, which provides the ability to deploy and serve machine learning models for real-time predictions."
+        }
+      ]
     },
     {
       "name": "Model Registry",
@@ -280,14 +307,19 @@
     },
     {
       "name": "Comet ML",
-      "category": "infra",
-      "difficulty": "intermediate",
-      "importance_score": 0.7,
+      "category": "other",
+      "difficulty": "beginner",
+      "importance_score": 0.85,
       "sources": [
         "https://shopify.engineering/shopifys-machine-learning-platform-real-time-predictions"
       ],
-      "definition": "",
-      "evidence_quotes": []
+      "definition": "A tool used within the Merlin platform for managing model registries and tracking machine learning experiments.",
+      "evidence_quotes": [
+        {
+          "url": "https://shopify.engineering/shopifys-machine-learning-platform-real-time-predictions",
+          "text": "Model Registry and experiment tracking with Comet ML."
+        }
+      ]
     },
     {
       "name": "Merlin Pipelines",
@@ -304,23 +336,33 @@
       "name": "Pano Feature Store",
       "category": "database",
       "difficulty": "intermediate",
-      "importance_score": 0.75,
+      "importance_score": 0.85,
       "sources": [
         "https://shopify.engineering/shopifys-machine-learning-platform-real-time-predictions"
       ],
-      "definition": "",
-      "evidence_quotes": []
+      "definition": "An offline and online feature store developed at Shopify, built upon the Feast open-source feature store.",
+      "evidence_quotes": [
+        {
+          "url": "https://shopify.engineering/shopifys-machine-learning-platform-real-time-predictions",
+          "text": "Pano Feature Store, an offline / online feature store built on top of an open source feature store, Feast."
+        }
+      ]
     },
     {
       "name": "Feast",
       "category": "database",
       "difficulty": "intermediate",
-      "importance_score": 0.65,
+      "importance_score": 0.8,
       "sources": [
         "https://shopify.engineering/shopifys-machine-learning-platform-real-time-predictions"
       ],
-      "definition": "",
-      "evidence_quotes": []
+      "definition": "An open-source feature store that serves as the foundation for Shopify's Pano Feature Store, enabling efficient feature management.",
+      "evidence_quotes": [
+        {
+          "url": "https://shopify.engineering/shopifys-machine-learning-platform-real-time-predictions",
+          "text": "built on top of an open source feature store, Feast."
+        }
+      ]
     },
     {
       "name": "Online Inference",
@@ -330,19 +372,29 @@
       "sources": [
         "https://shopify.engineering/shopifys-machine-learning-platform-real-time-predictions"
       ],
-      "definition": "",
-      "evidence_quotes": []
+      "definition": "A machine learning pattern where predictions are computed in real-time as new data becomes available, contrasting with batch inference.",
+      "evidence_quotes": [
+        {
+          "url": "https://shopify.engineering/shopifys-machine-learning-platform-real-time-predictions",
+          "text": "online inference is the ability to compute predictions in real-time as the input becomes available."
+        }
+      ]
     },
     {
       "name": "Batch Inference",
       "category": "pattern",
       "difficulty": "beginner",
-      "importance_score": 0.5,
+      "importance_score": 0.7,
       "sources": [
         "https://shopify.engineering/shopifys-machine-learning-platform-real-time-predictions"
       ],
-      "definition": "",
-      "evidence_quotes": []
+      "definition": "A machine learning pattern where predictions are computed periodically on a defined set of data, typically used for non-real-time analytical tasks.",
+      "evidence_quotes": [
+        {
+          "url": "https://shopify.engineering/shopifys-machine-learning-platform-real-time-predictions",
+          "text": "While batch inference can run periodically on a finite set of data, online inference is the ability to compute predictions in real-time as the input becomes available."
+        }
+      ]
     },
     {
       "name": "Kubernetes",
@@ -350,11 +402,16 @@
       "difficulty": "intermediate",
       "importance_score": 0.8,
       "sources": [
-        "https://shopify.engineering/shopifys-machine-learning-platform-real-time-predictions",
-        "https://shopify.engineering/evolution-product-classification"
+        "https://shopify.engineering/evolution-product-classification",
+        "https://shopify.engineering/shopifys-machine-learning-platform-real-time-predictions"
       ],
-      "definition": "",
-      "evidence_quotes": []
+      "definition": "An open-source container orchestration system used by Shopify to deploy and manage services, including Merlin Online Inference instances.",
+      "evidence_quotes": [
+        {
+          "url": "https://shopify.engineering/shopifys-machine-learning-platform-real-time-predictions",
+          "text": "These services are deployed on Shopify\u2019s Kubernetes clusters (Google Kubernetes Engine) as any other Shopify service."
+        }
+      ]
     },
     {
       "name": "Google Kubernetes Engine",
@@ -382,23 +439,33 @@
       "name": "Docker",
       "category": "infra",
       "difficulty": "beginner",
-      "importance_score": 0.6,
+      "importance_score": 0.75,
       "sources": [
         "https://shopify.engineering/shopifys-machine-learning-platform-real-time-predictions"
       ],
-      "definition": "",
-      "evidence_quotes": []
+      "definition": "A platform used for developing, shipping, and running applications in containers, utilized here to package the serving layer for Merlin Online Inference services.",
+      "evidence_quotes": [
+        {
+          "url": "https://shopify.engineering/shopifys-machine-learning-platform-real-time-predictions",
+          "text": "The serving layer is added to the Merlin Docker image, which is created by Podman from a dedicated Dockerfile."
+        }
+      ]
     },
     {
       "name": "Autoscaling",
       "category": "pattern",
       "difficulty": "intermediate",
-      "importance_score": 0.7,
+      "importance_score": 0.8,
       "sources": [
         "https://shopify.engineering/shopifys-machine-learning-platform-real-time-predictions"
       ],
-      "definition": "",
-      "evidence_quotes": []
+      "definition": "A system behavior where resources automatically adjust to meet demand, ensuring services can handle varying loads efficiently.",
+      "evidence_quotes": [
+        {
+          "url": "https://shopify.engineering/shopifys-machine-learning-platform-real-time-predictions",
+          "text": "allow online inference services to scale to Shopify\u2019s capabilities."
+        }
+      ]
     },
     {
       "name": "Vision Language Models (VLMs)",
@@ -754,16 +821,21 @@
     {
       "name": "REST API",
       "category": "infra",
-      "difficulty": "intermediate",
+      "difficulty": "beginner",
       "importance_score": 0.9,
       "sources": [
-        "https://shopify.engineering/export-datadog-metrics-in-jupyter-notebooks"
+        "https://shopify.engineering/export-datadog-metrics-in-jupyter-notebooks",
+        "https://shopify.engineering/shopifys-machine-learning-platform-real-time-predictions"
       ],
-      "definition": "An architectural style for designing networked applications that uses HTTP requests to access and manipulate data. It's commonly used for integrating different software systems.",
+      "definition": "A representational state transfer architectural style commonly used for building web services, providing an endpoint for clients to request predictions from machine learning models.",
       "evidence_quotes": [
         {
           "url": "https://shopify.engineering/export-datadog-metrics-in-jupyter-notebooks",
           "text": "Datadog has a REST API which we\u2019ll use to extract data from."
+        },
+        {
+          "url": "https://shopify.engineering/shopifys-machine-learning-platform-real-time-predictions",
+          "text": "Exposes an endpoint for the inference function that will take features as inputs and return predictions"
         }
       ]
     },
@@ -1054,6 +1126,278 @@
           "text": "we need to prepare individual attribute tables to be used as inputs for our double entry transition data infrastructure. ... This system (called build merge state transitions) takes our individual attribute tables and first generates a combined set of unique rows... It then creates one column per attribute... This table is then run through another process that creates our net_change column and assigns a +1 value to all current rows. It also inserts a second row for each state change with a net_change value of -1."
         }
       ]
+    },
+    {
+      "name": "Recurrent Neural Networks (RNNs)",
+      "category": "pattern",
+      "difficulty": "intermediate",
+      "importance_score": 0.9,
+      "sources": [
+        "https://machinelearning.apple.com/research/large-scale-rnns"
+      ],
+      "definition": "A type of neural network where connections between nodes form a directed graph along a temporal sequence, allowing them to exhibit temporal dynamic behavior. Their sequential computation is efficient at inference but historically difficult to parallelize during training.",
+      "evidence_quotes": [
+        {
+          "url": "https://machinelearning.apple.com/research/large-scale-rnns",
+          "text": "Recurrent Neural Networks (RNNs) are naturally suited to efficient inference, requiring far less memory and compute than attention-based architectures, but the sequential nature of their computation has historically made it impractical to scale up RNNs to billions of parameters."
+        }
+      ]
+    },
+    {
+      "name": "Parallel Training",
+      "category": "pattern",
+      "difficulty": "intermediate",
+      "importance_score": 0.95,
+      "sources": [
+        "https://machinelearning.apple.com/research/large-scale-rnns"
+      ],
+      "definition": "A method for training machine learning models by distributing the computational workload across multiple processing units or machines. This is crucial for scaling models to large sizes and reducing training time.",
+      "evidence_quotes": [
+        {
+          "url": "https://machinelearning.apple.com/research/large-scale-rnns",
+          "text": "Apple researchers share a new framework for parallelized RNN training that achieves a 665\u00d7 speedup over the traditional sequential approach"
+        }
+      ]
+    },
+    {
+      "name": "Linearity",
+      "category": "pattern",
+      "difficulty": "beginner",
+      "importance_score": 0.8,
+      "sources": [
+        "https://machinelearning.apple.com/research/large-scale-rnns"
+      ],
+      "definition": "A property of mathematical operations where scaling input by a factor scales output by the same factor, and the sum of scaled inputs corresponds to the scaled sum of outputs. In RNNs, linearity enables parallelization due to its associative property.",
+      "evidence_quotes": [
+        {
+          "url": "https://machinelearning.apple.com/research/large-scale-rnns",
+          "text": "Modern recurrent architectures have leveraged a clever workaround to enable sequence parallelization: simplifying the recurrence relationship to be purely linear in the hidden state."
+        }
+      ]
+    },
+    {
+      "name": "Parallel Reduction",
+      "category": "pattern",
+      "difficulty": "intermediate",
+      "importance_score": 0.85,
+      "sources": [
+        "https://machinelearning.apple.com/research/large-scale-rnns"
+      ],
+      "definition": "An algorithm that combines elements of a collection into a single result using parallel processing. It's essential for efficiently computing operations like sums or products across long sequences in parallel.",
+      "evidence_quotes": [
+        {
+          "url": "https://machinelearning.apple.com/research/large-scale-rnns",
+          "text": "This mathematical property allows us to use parallel reduction algorithms (also known as parallel scan) to compute the entire sequence of hidden states simultaneously."
+        }
+      ]
+    },
+    {
+      "name": "Newton's Method",
+      "category": "pattern",
+      "difficulty": "advanced",
+      "importance_score": 0.85,
+      "sources": [
+        "https://machinelearning.apple.com/research/large-scale-rnns"
+      ],
+      "definition": "An iterative numerical method for finding successively better approximations to the roots (or zeroes) of a real-valued function. In this context, it's adapted to solve nonlinear RNN systems by iteratively approximating them with linear systems.",
+      "evidence_quotes": [
+        {
+          "url": "https://machinelearning.apple.com/research/large-scale-rnns",
+          "text": "The key insight is that we can have the best of both worlds, by adapting Newton\u2019s method \u2014 a classic numerical technique for solving nonlinear equations."
+        }
+      ]
+    },
+    {
+      "name": "Jacobians",
+      "category": "other",
+      "difficulty": "advanced",
+      "importance_score": 0.8,
+      "sources": [
+        "https://machinelearning.apple.com/research/large-scale-rnns"
+      ],
+      "definition": "A matrix of all first-order partial derivatives of a vector-valued function. In ParaRNN, Jacobians are used to linearize the nonlinear RNN system, allowing it to be solved using methods similar to linear SSMs.",
+      "evidence_quotes": [
+        {
+          "url": "https://machinelearning.apple.com/research/large-scale-rnns",
+          "text": "Newton\u2019s method solves this system iteratively, approximating the nonlinearities with a linearization given by their local derivatives (i.e., their Jacobians)."
+        }
+      ]
+    },
+    {
+      "name": "GRU (Gated Recurrent Unit)",
+      "category": "other",
+      "difficulty": "intermediate",
+      "importance_score": 0.75,
+      "sources": [
+        "https://machinelearning.apple.com/research/large-scale-rnns"
+      ],
+      "definition": "A type of recurrent neural network that uses gating mechanisms to control information flow, simplifying the architecture compared to LSTMs while maintaining strong performance. ParaRNN adapts GRU cells for parallel training.",
+      "evidence_quotes": [
+        {
+          "url": "https://machinelearning.apple.com/research/large-scale-rnns",
+          "text": "In our experiments, we apply this methodology to adaptations of two classical RNNs: the GRU and LSTM cells"
+        }
+      ]
+    },
+    {
+      "name": "LSTM (Long Short-Term Memory)",
+      "category": "other",
+      "difficulty": "intermediate",
+      "importance_score": 0.75,
+      "sources": [
+        "https://machinelearning.apple.com/research/large-scale-rnns"
+      ],
+      "definition": "A type of recurrent neural network capable of learning long-term dependencies, utilizing gating mechanisms (input, forget, output gates) and a cell state. ParaRNN adapts LSTM cells for parallel training.",
+      "evidence_quotes": [
+        {
+          "url": "https://machinelearning.apple.com/research/large-scale-rnns",
+          "text": "In our experiments, we apply this methodology to adaptations of two classical RNNs: the GRU and LSTM cells"
+        }
+      ]
+    },
+    {
+      "name": "CUDA Kernels",
+      "category": "infra",
+      "difficulty": "advanced",
+      "importance_score": 0.7,
+      "sources": [
+        "https://machinelearning.apple.com/research/large-scale-rnns"
+      ],
+      "definition": "Custom programs written in CUDA C/C++ that run on NVIDIA GPUs. They are used here to accelerate the parallel reduction of Jacobian matrices, optimizing performance for large-scale computations.",
+      "evidence_quotes": [
+        {
+          "url": "https://machinelearning.apple.com/research/large-scale-rnns",
+          "text": "To get the best speedups, we then implement custom CUDA kernels to perform efficient parallel reduction of Jacobians presenting these structures."
+        }
+      ]
+    },
+    {
+      "name": "PyTorch",
+      "category": "infra",
+      "difficulty": "beginner",
+      "importance_score": 0.6,
+      "sources": [
+        "https://machinelearning.apple.com/research/large-scale-rnns"
+      ],
+      "definition": "An open-source machine learning framework developed by Facebook's AI Research lab. It provides flexibility and speed for building and training neural networks, and is used here for implementing ParaRNN cells.",
+      "evidence_quotes": [
+        {
+          "url": "https://machinelearning.apple.com/research/large-scale-rnns",
+          "text": "In Figure 7 we provide timing results for the three implementations we provide to apply our ParaRNN cells in parallel: in pure PyTorch, in PyTorch with CUDA-accelerated reduction, and fully-fused in CUDA."
+        }
+      ]
+    },
+    {
+      "name": "Selective State Space Models (SSMs)",
+      "category": "pattern",
+      "difficulty": "advanced",
+      "importance_score": 0.8,
+      "sources": [
+        "https://machinelearning.apple.com/research/large-scale-rnns"
+      ],
+      "definition": "A class of models that combine aspects of state-space models and recurrent neural networks, designed for efficient sequence modeling. They often employ linear recurrence relations that are amenable to parallelization.",
+      "evidence_quotes": [
+        {
+          "url": "https://machinelearning.apple.com/research/large-scale-rnns",
+          "text": "Selective state space models (SSMs) like Mamba use a recurrence in the form:"
+        }
+      ]
+    },
+    {
+      "name": "Mamba",
+      "category": "other",
+      "difficulty": "advanced",
+      "importance_score": 0.75,
+      "sources": [
+        "https://machinelearning.apple.com/research/large-scale-rnns"
+      ],
+      "definition": "A specific type of selective state space model known for its efficiency and performance in sequence modeling tasks. It serves as inspiration and a point of comparison for the ParaRNN framework.",
+      "evidence_quotes": [
+        {
+          "url": "https://machinelearning.apple.com/research/large-scale-rnns",
+          "text": "Selective state space models (SSMs) like Mamba use a recurrence in the form:"
+        }
+      ]
+    },
+    {
+      "name": "Transformers",
+      "category": "pattern",
+      "difficulty": "intermediate",
+      "importance_score": 0.85,
+      "sources": [
+        "https://machinelearning.apple.com/research/large-scale-rnns"
+      ],
+      "definition": "A deep learning model architecture relying on self-attention mechanisms, widely used in NLP. They process sequences in parallel but have quadratic computational cost with sequence length, unlike RNNs' constant inference cost.",
+      "evidence_quotes": [
+        {
+          "url": "https://machinelearning.apple.com/research/large-scale-rnns",
+          "text": "whereas the computation required for a single forward pass through an RNN is the same regardless of how much context came before. This enables constant-time token generation during inference, making them particularly attractive for efficient deployment."
+        }
+      ]
+    },
+    {
+      "name": "Inference",
+      "category": "pattern",
+      "difficulty": "beginner",
+      "importance_score": 0.7,
+      "sources": [
+        "https://machinelearning.apple.com/research/large-scale-rnns"
+      ],
+      "definition": "The process of using a trained machine learning model to make predictions on new, unseen data. RNNs are noted for their efficiency during inference due to their constant-time token generation.",
+      "evidence_quotes": [
+        {
+          "url": "https://machinelearning.apple.com/research/large-scale-rnns",
+          "text": "Recurrent Neural Networks (RNNs) are naturally suited to efficient inference, requiring far less memory and compute than attention-based architectures"
+        }
+      ]
+    },
+    {
+      "name": "Low Latency",
+      "category": "pattern",
+      "difficulty": "intermediate",
+      "importance_score": 0.85,
+      "sources": [
+        "https://shopify.engineering/shopifys-machine-learning-platform-real-time-predictions"
+      ],
+      "definition": "A critical design consideration for online inference systems, aiming to minimize the time delay between receiving a request and returning a prediction.",
+      "evidence_quotes": [
+        {
+          "url": "https://shopify.engineering/shopifys-machine-learning-platform-real-time-predictions",
+          "text": "Low latency, in order to optimize processing of an inference request to provide responses with minimal delay."
+        }
+      ]
+    },
+    {
+      "name": "Observability",
+      "category": "pattern",
+      "difficulty": "intermediate",
+      "importance_score": 0.75,
+      "sources": [
+        "https://shopify.engineering/shopifys-machine-learning-platform-real-time-predictions"
+      ],
+      "definition": "The ability to understand the internal state of a system by examining its outputs, crucial for monitoring and debugging deployed services.",
+      "evidence_quotes": [
+        {
+          "url": "https://shopify.engineering/shopifys-machine-learning-platform-real-time-predictions",
+          "text": "State-of-the-art features for online inference services, like rolling deployments, autoscaling, observability, automatic model updates, etc."
+        }
+      ]
+    },
+    {
+      "name": "Rolling Deployments",
+      "category": "pattern",
+      "difficulty": "intermediate",
+      "importance_score": 0.75,
+      "sources": [
+        "https://shopify.engineering/shopifys-machine-learning-platform-real-time-predictions"
+      ],
+      "definition": "A deployment strategy that gradually updates instances of a service, minimizing downtime and risk during software updates.",
+      "evidence_quotes": [
+        {
+          "url": "https://shopify.engineering/shopifys-machine-learning-platform-real-time-predictions",
+          "text": "State-of-the-art features for online inference services, like rolling deployments, autoscaling, observability, automatic model updates, etc."
+        }
+      ]
     }
   ],
   "edges": [
@@ -1072,6 +1416,12 @@
     {
       "source": "Attention mechanism",
       "target": "Transformer architecture",
+      "relation_type": "part_of",
+      "confidence": 0.9
+    },
+    {
+      "source": "Attention mechanism",
+      "target": "Transformers",
       "relation_type": "part_of",
       "confidence": 0.9
     },
@@ -1148,6 +1498,18 @@
       "confidence": 0.6
     },
     {
+      "source": "Merlin",
+      "target": "Ray",
+      "relation_type": "depends_on",
+      "confidence": 0.9
+    },
+    {
+      "source": "Merlin",
+      "target": "Merlin Pipelines",
+      "relation_type": "related_to",
+      "confidence": 0.85
+    },
+    {
       "source": "Ray",
       "target": "Merlin",
       "relation_type": "related_to",
@@ -1158,6 +1520,60 @@
       "target": "Merlin",
       "relation_type": "part_of",
       "confidence": 0.95
+    },
+    {
+      "source": "Merlin Online Inference",
+      "target": "Comet ML",
+      "relation_type": "related_to",
+      "confidence": 0.85
+    },
+    {
+      "source": "Merlin Online Inference",
+      "target": "Kubernetes",
+      "relation_type": "part_of",
+      "confidence": 0.85
+    },
+    {
+      "source": "Merlin Online Inference",
+      "target": "Docker",
+      "relation_type": "part_of",
+      "confidence": 0.85
+    },
+    {
+      "source": "Merlin Online Inference",
+      "target": "REST API",
+      "relation_type": "related_to",
+      "confidence": 0.85
+    },
+    {
+      "source": "Merlin Online Inference",
+      "target": "Online Inference",
+      "relation_type": "related_to",
+      "confidence": 0.95
+    },
+    {
+      "source": "Merlin Online Inference",
+      "target": "Low Latency",
+      "relation_type": "related_to",
+      "confidence": 0.9
+    },
+    {
+      "source": "Merlin Online Inference",
+      "target": "Autoscaling",
+      "relation_type": "related_to",
+      "confidence": 0.85
+    },
+    {
+      "source": "Merlin Online Inference",
+      "target": "Observability",
+      "relation_type": "related_to",
+      "confidence": 0.8
+    },
+    {
+      "source": "Merlin Online Inference",
+      "target": "Rolling Deployments",
+      "relation_type": "related_to",
+      "confidence": 0.8
     },
     {
       "source": "Model Registry",
@@ -1184,6 +1600,12 @@
       "confidence": 0.8
     },
     {
+      "source": "Pano Feature Store",
+      "target": "Feast",
+      "relation_type": "depends_on",
+      "confidence": 0.9
+    },
+    {
       "source": "Feast",
       "target": "Pano Feature Store",
       "relation_type": "related_to",
@@ -1194,6 +1616,12 @@
       "target": "Merlin Online Inference",
       "relation_type": "related_to",
       "confidence": 0.9
+    },
+    {
+      "source": "Online Inference",
+      "target": "Batch Inference",
+      "relation_type": "related_to",
+      "confidence": 0.7
     },
     {
       "source": "Batch Inference",
@@ -1530,6 +1958,84 @@
       "target": "Data Pipeline",
       "relation_type": "related_to",
       "confidence": 0.75
+    },
+    {
+      "source": "Recurrent Neural Networks (RNNs)",
+      "target": "Inference",
+      "relation_type": "related_to",
+      "confidence": 0.9
+    },
+    {
+      "source": "Recurrent Neural Networks (RNNs)",
+      "target": "Transformers",
+      "relation_type": "related_to",
+      "confidence": 0.85
+    },
+    {
+      "source": "Recurrent Neural Networks (RNNs)",
+      "target": "Large Language Models (LLMs)",
+      "relation_type": "related_to",
+      "confidence": 0.9
+    },
+    {
+      "source": "Parallel Training",
+      "target": "Large Language Models (LLMs)",
+      "relation_type": "related_to",
+      "confidence": 0.95
+    },
+    {
+      "source": "Linearity",
+      "target": "Parallel Training",
+      "relation_type": "prerequisite",
+      "confidence": 0.9
+    },
+    {
+      "source": "Parallel Reduction",
+      "target": "Linearity",
+      "relation_type": "depends_on",
+      "confidence": 0.95
+    },
+    {
+      "source": "Newton's Method",
+      "target": "Jacobians",
+      "relation_type": "depends_on",
+      "confidence": 0.9
+    },
+    {
+      "source": "GRU (Gated Recurrent Unit)",
+      "target": "Recurrent Neural Networks (RNNs)",
+      "relation_type": "part_of",
+      "confidence": 0.8
+    },
+    {
+      "source": "LSTM (Long Short-Term Memory)",
+      "target": "Recurrent Neural Networks (RNNs)",
+      "relation_type": "part_of",
+      "confidence": 0.8
+    },
+    {
+      "source": "CUDA Kernels",
+      "target": "Jacobians",
+      "relation_type": "depends_on",
+      "confidence": 0.85
+    },
+    {
+      "source": "PyTorch",
+      "target": "Recurrent Neural Networks (RNNs)",
+      "relation_type": "related_to",
+      "confidence": 0.7
+    },
+    {
+      "source": "Selective State Space Models (SSMs)",
+      "target": "Parallel Training",
+      "relation_type": "related_to",
+      "confidence": 0.8
+    },
+    {
+      "source": "Mamba",
+      "target": "Selective State Space Models (SSMs)",
+      "relation_type": "part_of",
+      "confidence": 0.85
     }
   ]
 }

@@ -13,10 +13,12 @@ Use this document as the combined prompt specification for the System Design Kno
 
 On Pydantic validation failure: retry LLM once with error details (max 2 retries).
 
-## Gemini LLM integration
+## LLM integration
 
-- Use `backend/utils/llm.py`: `GEMINI_API_KEY`, `GEMINI_MODEL`, `generate_json(prompt, user_content)`.
-- Optional: `LLM_BASE_URL` for gateway fallback.
+- Use `backend/utils/llm.py`: `generate_json(prompt, user_content)`.
+- **Option A:** `GEMINI_API_KEY` + `GEMINI_MODEL` (direct Gemini SDK).
+- **Option B:** `LLM_BASE_URL` + Gateway V2 (`LLM_GATEWAY_API=v2`, default) — `/v1/chat` with `cache_system`, `reasoning=off`, strict JSON schema; see README diagrams.
+- **Option C:** `LLM_GATEWAY_API=v1` for legacy gateway on port 8099.
 - Validate all responses with Pydantic (`reasoning`, `confidence`, `self_check`, `reasoning_types`).
 
 ## Agent prompts
