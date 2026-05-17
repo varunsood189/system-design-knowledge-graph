@@ -59,6 +59,18 @@
       "title": "Shopify Data\u2019s Guide To Opportunity Sizing - Shopify",
       "ingested_at": "2026-05-17T06:32:10.691698+00:00",
       "concept_count": 10
+    },
+    {
+      "url": "https://medium.com/data-science-at-microsoft/data-agents-when-enterprise-analytics-learns-to-reason-13345ec8998e",
+      "title": "Data agents: When enterprise analytics learns to reason",
+      "ingested_at": "2026-05-17T06:48:13.174723+00:00",
+      "concept_count": 12
+    },
+    {
+      "url": "https://shopify.engineering/shopify-inbox-message-classification-model",
+      "title": "Data-Centric Machine Learning: Building Shopify Inbox\u2019s Message Classification Model - Shopify",
+      "ingested_at": "2026-05-17T06:50:23.325364+00:00",
+      "concept_count": 13
     }
   ],
   "nodes": [
@@ -645,10 +657,11 @@
       "difficulty": "intermediate",
       "importance_score": 0.9,
       "sources": [
-        "https://shopify.engineering/double-entry-transition-tables-shopify",
-        "https://shopify.engineering/building-commerce-data-models-with-shopifyql"
+        "https://shopify.engineering/building-commerce-data-models-with-shopifyql",
+        "https://medium.com/data-science-at-microsoft/data-agents-when-enterprise-analytics-learns-to-reason-13345ec8998e",
+        "https://shopify.engineering/double-entry-transition-tables-shopify"
       ],
-      "definition": "The process of creating a conceptual representation of data, defining its structure, relationships, and constraints. This article details a specific data model for tracking temporal state changes.",
+      "definition": "The process of creating a conceptual representation of data, defining its structure, relationships, and constraints, to ensure consistency and facilitate analysis.",
       "evidence_quotes": [
         {
           "url": "https://shopify.engineering/building-commerce-data-models-with-shopifyql",
@@ -657,6 +670,10 @@
         {
           "url": "https://shopify.engineering/double-entry-transition-tables-shopify",
           "text": "We created individual attribute tables for both the Shopify Balance account status and the Shopify account status. An attribute input table must have a specific set of columns: - a partition key that\u2019s common across attribute, which in our case is an account_id - a sort key, generally a transition_at timestamp and an index - an attribute you want to track."
+        },
+        {
+          "url": "https://medium.com/data-science-at-microsoft/data-agents-when-enterprise-analytics-learns-to-reason-13345ec8998e",
+          "text": "The semantic layer (a metrics store, glossary, or governed model) pins words like \u201crevenue,\u201d \u201cactive user,\u201d or \u201cconversion\u201d to consistent definitions and approved tables."
         }
       ]
     },
@@ -1700,9 +1717,10 @@
       "difficulty": "intermediate",
       "importance_score": 0.7,
       "sources": [
+        "https://shopify.engineering/shopify-inbox-message-classification-model",
         "https://medium.com/airbnb-engineering/recommending-travel-destinations-to-help-users-explore-5fa7a81654fb"
       ],
-      "definition": "A technique used to represent discrete variables, like user actions or locations, as dense, low-dimensional vectors in a continuous vector space, capturing semantic relationships.",
+      "definition": "Numerical representations of text (like sentences) in a vector space, where similar meanings are represented by vectors that are close to each other, used for machine learning models to process text data.",
       "evidence_quotes": [
         {
           "url": "https://medium.com/airbnb-engineering/recommending-travel-destinations-to-help-users-explore-5fa7a81654fb",
@@ -2043,6 +2061,374 @@
         {
           "url": "https://shopify.engineering/shopify-data-guide-opportunity-sizing",
           "text": "you\u2019ll want to estimate the impact on your top-line metric."
+        }
+      ]
+    },
+    {
+      "name": "Data Agent",
+      "category": "pattern",
+      "difficulty": "intermediate",
+      "importance_score": 0.95,
+      "sources": [
+        "https://medium.com/data-science-at-microsoft/data-agents-when-enterprise-analytics-learns-to-reason-13345ec8998e"
+      ],
+      "definition": "An analytics system designed to interpret user intent, monitor data for significant changes, and take or recommend actions within defined boundaries, moving beyond passive reporting to active decision support.",
+      "evidence_quotes": [
+        {
+          "url": "https://medium.com/data-science-at-microsoft/data-agents-when-enterprise-analytics-learns-to-reason-13345ec8998e",
+          "text": "A data agent is a governed analytics system that interprets intent, monitors for meaningful changes, and can recommend \u2014 or take \u2014 bounded actions under explicit guardrails."
+        }
+      ]
+    },
+    {
+      "name": "Semantic Foundation / Metrics Store",
+      "category": "database",
+      "difficulty": "intermediate",
+      "importance_score": 0.9,
+      "sources": [
+        "https://medium.com/data-science-at-microsoft/data-agents-when-enterprise-analytics-learns-to-reason-13345ec8998e"
+      ],
+      "definition": "A centralized repository or model that defines and governs key business metrics and their associated data sources, ensuring consistent interpretation and use across analytics systems.",
+      "evidence_quotes": [
+        {
+          "url": "https://medium.com/data-science-at-microsoft/data-agents-when-enterprise-analytics-learns-to-reason-13345ec8998e",
+          "text": "agents lean on two things: a natural-language interface and a shared semantic foundation. The semantic layer (a metrics store, glossary, or governed model) pins words like \u201crevenue,\u201d \u201cactive user,\u201d or \u201cconversion\u201d to consistent definitions and approved tables."
+        }
+      ]
+    },
+    {
+      "name": "Continuous Monitoring",
+      "category": "pattern",
+      "difficulty": "intermediate",
+      "importance_score": 0.85,
+      "sources": [
+        "https://medium.com/data-science-at-microsoft/data-agents-when-enterprise-analytics-learns-to-reason-13345ec8998e"
+      ],
+      "definition": "A system design where processes run constantly or on very frequent schedules to observe data streams or states, detecting meaningful changes or conditions in near real-time.",
+      "evidence_quotes": [
+        {
+          "url": "https://medium.com/data-science-at-microsoft/data-agents-when-enterprise-analytics-learns-to-reason-13345ec8998e",
+          "text": "Agents run continuously. Reports are episodic; a dashboard refreshes from time to time. Agents are closer to monitoring systems. They run on schedules measured in minutes (or events) and look for conditions that matter."
+        }
+      ]
+    },
+    {
+      "name": "Guardrails",
+      "category": "pattern",
+      "difficulty": "intermediate",
+      "importance_score": 0.85,
+      "sources": [
+        "https://medium.com/data-science-at-microsoft/data-agents-when-enterprise-analytics-learns-to-reason-13345ec8998e"
+      ],
+      "definition": "A set of predefined rules, limits, and escalation procedures that constrain the autonomous actions of a system, ensuring safety, compliance, and preventing unintended consequences.",
+      "evidence_quotes": [
+        {
+          "url": "https://medium.com/data-science-at-microsoft/data-agents-when-enterprise-analytics-learns-to-reason-13345ec8998e",
+          "text": "Agents are bounded by guardrails. In an enterprise, autonomy is earned. Good agents have explicit limits (permissions, thresholds, escalation rules) and a clear \u201cstop and ask\u201d path."
+        }
+      ]
+    },
+    {
+      "name": "Action Execution / Workflow Automation",
+      "category": "pattern",
+      "difficulty": "intermediate",
+      "importance_score": 0.8,
+      "sources": [
+        "https://medium.com/data-science-at-microsoft/data-agents-when-enterprise-analytics-learns-to-reason-13345ec8998e"
+      ],
+      "definition": "The capability of a system to automatically perform predefined tasks or initiate workflows in response to detected conditions or user requests, often within specified constraints.",
+      "evidence_quotes": [
+        {
+          "url": "https://medium.com/data-science-at-microsoft/data-agents-when-enterprise-analytics-learns-to-reason-13345ec8998e",
+          "text": "Sometimes it can even take a small, pre-approved action, such as pausing a failing campaign, and then explain what it did and why."
+        }
+      ]
+    },
+    {
+      "name": "Natural Language Interface",
+      "category": "infra",
+      "difficulty": "beginner",
+      "importance_score": 0.75,
+      "sources": [
+        "https://medium.com/data-science-at-microsoft/data-agents-when-enterprise-analytics-learns-to-reason-13345ec8998e"
+      ],
+      "definition": "A user interface that allows interaction with a system using everyday human language, abstracting away complex commands or query structures.",
+      "evidence_quotes": [
+        {
+          "url": "https://medium.com/data-science-at-microsoft/data-agents-when-enterprise-analytics-learns-to-reason-13345ec8998e",
+          "text": "The natural-language layer lets people ask in plain terms, while the semantic layer (a metrics store, glossary, or governed model) pins words like \u201crevenue,\u201d \u201cactive user,\u201d or \u201cconversion\u201d to consistent definitions and approved tables."
+        }
+      ]
+    },
+    {
+      "name": "Data Governance",
+      "category": "pattern",
+      "difficulty": "intermediate",
+      "importance_score": 0.75,
+      "sources": [
+        "https://medium.com/data-science-at-microsoft/data-agents-when-enterprise-analytics-learns-to-reason-13345ec8998e"
+      ],
+      "definition": "A framework of rules, policies, and processes that ensures data is managed, used, and protected consistently and ethically throughout its lifecycle, ensuring data quality and compliance.",
+      "evidence_quotes": [
+        {
+          "url": "https://medium.com/data-science-at-microsoft/data-agents-when-enterprise-analytics-learns-to-reason-13345ec8998e",
+          "text": "A data agent is a governed analytics system that interprets intent, monitors for meaningful changes, and can recommend \u2014 or take \u2014 bounded actions under explicit guardrails."
+        }
+      ]
+    },
+    {
+      "name": "Orchestration Layer",
+      "category": "pattern",
+      "difficulty": "intermediate",
+      "importance_score": 0.7,
+      "sources": [
+        "https://medium.com/data-science-at-microsoft/data-agents-when-enterprise-analytics-learns-to-reason-13345ec8998e"
+      ],
+      "definition": "A component responsible for coordinating and managing the execution of multiple independent services or agents, directing workflows and integrating their outputs.",
+      "evidence_quotes": [
+        {
+          "url": "https://medium.com/data-science-at-microsoft/data-agents-when-enterprise-analytics-learns-to-reason-13345ec8998e",
+          "text": "A parent orchestrator receives each user\u2019s natural-language question, routes it to the relevant child agent, and converts retrieved data into business-friendly insights."
+        }
+      ]
+    },
+    {
+      "name": "Real-time Data Processing",
+      "category": "pattern",
+      "difficulty": "intermediate",
+      "importance_score": 0.65,
+      "sources": [
+        "https://medium.com/data-science-at-microsoft/data-agents-when-enterprise-analytics-learns-to-reason-13345ec8998e"
+      ],
+      "definition": "The ability of a system to process and analyze data as it is generated or received, enabling immediate insights and responses to events.",
+      "evidence_quotes": [
+        {
+          "url": "https://medium.com/data-science-at-microsoft/data-agents-when-enterprise-analytics-learns-to-reason-13345ec8998e",
+          "text": "It watches near real-time sales and inventory, and it\u2019s connected to the ordering workflow."
+        }
+      ]
+    },
+    {
+      "name": "Audit Logging",
+      "category": "pattern",
+      "difficulty": "beginner",
+      "importance_score": 0.6,
+      "sources": [
+        "https://medium.com/data-science-at-microsoft/data-agents-when-enterprise-analytics-learns-to-reason-13345ec8998e"
+      ],
+      "definition": "The process of recording system activities, user actions, and data changes to provide a traceable history for security, compliance, and debugging purposes.",
+      "evidence_quotes": [
+        {
+          "url": "https://medium.com/data-science-at-microsoft/data-agents-when-enterprise-analytics-learns-to-reason-13345ec8998e",
+          "text": "with everything logged for accountability."
+        }
+      ]
+    },
+    {
+      "name": "Role-Based Access Control",
+      "category": "pattern",
+      "difficulty": "beginner",
+      "importance_score": 0.5,
+      "sources": [
+        "https://medium.com/data-science-at-microsoft/data-agents-when-enterprise-analytics-learns-to-reason-13345ec8998e"
+      ],
+      "definition": "A security mechanism that restricts system access based on the roles assigned to users, ensuring that individuals can only access the data and functions relevant to their job responsibilities.",
+      "evidence_quotes": [
+        {
+          "url": "https://medium.com/data-science-at-microsoft/data-agents-when-enterprise-analytics-learns-to-reason-13345ec8998e",
+          "text": "maintain secure, role-based access throughout."
+        }
+      ]
+    },
+    {
+      "name": "Data-centric approach",
+      "category": "pattern",
+      "difficulty": "intermediate",
+      "importance_score": 0.95,
+      "sources": [
+        "https://shopify.engineering/shopify-inbox-message-classification-model"
+      ],
+      "definition": "A machine learning methodology that prioritizes improving the quality and consistency of training data over iterating on model architectures to achieve higher model accuracy and better system performance.",
+      "evidence_quotes": [
+        {
+          "url": "https://shopify.engineering/shopify-inbox-message-classification-model",
+          "text": "we decided to apply a newly popular machine learning process\u2014the data-centric approach. We wanted to focus on fine-tuning these pre-trained models on our own data to yield the highest model accuracy, and deliver the best experience for our merchants."
+        }
+      ]
+    },
+    {
+      "name": "Natural Language Processing (NLP)",
+      "category": "other",
+      "difficulty": "intermediate",
+      "importance_score": 0.9,
+      "sources": [
+        "https://shopify.engineering/shopify-inbox-message-classification-model"
+      ],
+      "definition": "A field of artificial intelligence focused on enabling computers to understand, interpret, and generate human language, crucial for tasks like message classification.",
+      "evidence_quotes": [
+        {
+          "url": "https://shopify.engineering/shopify-inbox-message-classification-model",
+          "text": "this was going to be a challenging natural language processing (NLP) task."
+        }
+      ]
+    },
+    {
+      "name": "Pre-trained models",
+      "category": "pattern",
+      "difficulty": "intermediate",
+      "importance_score": 0.9,
+      "sources": [
+        "https://shopify.engineering/shopify-inbox-message-classification-model"
+      ],
+      "definition": "Models that have already been trained on a large dataset, which can then be fine-tuned on a smaller, specific dataset for a particular task, saving time and resources.",
+      "evidence_quotes": [
+        {
+          "url": "https://shopify.engineering/shopify-inbox-message-classification-model",
+          "text": "off-the-shelf NLP models are widely available to everyone. With this in mind, we decided to apply a newly popular machine learning process\u2014the data-centric approach. We wanted to focus on fine-tuning these pre-trained models on our own data to yield the highest model accuracy"
+        }
+      ]
+    },
+    {
+      "name": "Universal Sentence Encoder",
+      "category": "other",
+      "difficulty": "intermediate",
+      "importance_score": 0.85,
+      "sources": [
+        "https://shopify.engineering/shopify-inbox-message-classification-model"
+      ],
+      "definition": "A pre-trained model available on TensorFlow Hub that generates embeddings for sentences, capturing semantic meaning by considering word order.",
+      "evidence_quotes": [
+        {
+          "url": "https://shopify.engineering/shopify-inbox-message-classification-model",
+          "text": "Our team chose a pre-trained model available on TensorFlow Hub called Universal Sentence Encoder. This model can output embeddings for whole sentences while taking into account the order of words."
+        }
+      ]
+    },
+    {
+      "name": "DistilBERT",
+      "category": "other",
+      "difficulty": "advanced",
+      "importance_score": 0.85,
+      "sources": [
+        "https://shopify.engineering/shopify-inbox-message-classification-model"
+      ],
+      "definition": "A smaller, faster, and lighter version of the BERT model, belonging to the Transformer family, designed to offer a good balance of performance, resource efficiency, and accuracy for NLP tasks.",
+      "evidence_quotes": [
+        {
+          "url": "https://shopify.engineering/shopify-inbox-message-classification-model",
+          "text": "We settled on DistilBERT, a model that promised a good balance between performance, resource usage, and accuracy."
+        }
+      ]
+    },
+    {
+      "name": "Fine-tuning",
+      "category": "pattern",
+      "difficulty": "intermediate",
+      "importance_score": 0.8,
+      "sources": [
+        "https://shopify.engineering/shopify-inbox-message-classification-model"
+      ],
+      "definition": "The process of taking a pre-trained model and further training it on a specific dataset to adapt it to a particular task or domain, improving its performance for that specific application.",
+      "evidence_quotes": [
+        {
+          "url": "https://shopify.engineering/shopify-inbox-message-classification-model",
+          "text": "We wanted to focus on fine-tuning these pre-trained models on our own data to yield the highest model accuracy"
+        }
+      ]
+    },
+    {
+      "name": "Dimensionality Reduction",
+      "category": "pattern",
+      "difficulty": "intermediate",
+      "importance_score": 0.75,
+      "sources": [
+        "https://shopify.engineering/shopify-inbox-message-classification-model"
+      ],
+      "definition": "Techniques used to reduce the number of features or variables in a dataset while preserving as much important information as possible, often used for visualization or to improve the efficiency of machine learning algorithms.",
+      "evidence_quotes": [
+        {
+          "url": "https://shopify.engineering/shopify-inbox-message-classification-model",
+          "text": "using various dimensionality reduction and clustering techniques, including UMAP and HDBScan."
+        }
+      ]
+    },
+    {
+      "name": "Clustering",
+      "category": "pattern",
+      "difficulty": "intermediate",
+      "importance_score": 0.75,
+      "sources": [
+        "https://shopify.engineering/shopify-inbox-message-classification-model"
+      ],
+      "definition": "An unsupervised machine learning technique that groups a set of objects in such a way that objects in the same group (called a cluster) are more similar to each other than to those in other groups.",
+      "evidence_quotes": [
+        {
+          "url": "https://shopify.engineering/shopify-inbox-message-classification-model",
+          "text": "using various dimensionality reduction and clustering techniques, including UMAP and HDBScan."
+        }
+      ]
+    },
+    {
+      "name": "UMAP",
+      "category": "other",
+      "difficulty": "intermediate",
+      "importance_score": 0.7,
+      "sources": [
+        "https://shopify.engineering/shopify-inbox-message-classification-model"
+      ],
+      "definition": "Uniform Manifold Approximation and Projection, a dimensionality reduction technique used for visualizing high-dimensional data and discovering structure.",
+      "evidence_quotes": [
+        {
+          "url": "https://shopify.engineering/shopify-inbox-message-classification-model",
+          "text": "including UMAP and HDBScan."
+        }
+      ]
+    },
+    {
+      "name": "HDBScan",
+      "category": "other",
+      "difficulty": "intermediate",
+      "importance_score": 0.7,
+      "sources": [
+        "https://shopify.engineering/shopify-inbox-message-classification-model"
+      ],
+      "definition": "A density-based clustering algorithm that can find clusters of varying shapes and sizes, and is robust to noise.",
+      "evidence_quotes": [
+        {
+          "url": "https://shopify.engineering/shopify-inbox-message-classification-model",
+          "text": "including UMAP and HDBScan."
+        }
+      ]
+    },
+    {
+      "name": "Semi-supervised learning",
+      "category": "pattern",
+      "difficulty": "intermediate",
+      "importance_score": 0.7,
+      "sources": [
+        "https://shopify.engineering/shopify-inbox-message-classification-model"
+      ],
+      "definition": "A machine learning approach that uses a small amount of labeled data along with a large amount of unlabeled data for training, bridging the gap between supervised and unsupervised learning.",
+      "evidence_quotes": [
+        {
+          "url": "https://shopify.engineering/shopify-inbox-message-classification-model",
+          "text": "After manually assigning topics to around 20 message clusters, we applied a semi-supervised technique. This approach takes a small amount of labeled data, combined with a larger amount of unlabeled data."
+        }
+      ]
+    },
+    {
+      "name": "Production deployment",
+      "category": "infra",
+      "difficulty": "beginner",
+      "importance_score": 0.6,
+      "sources": [
+        "https://shopify.engineering/shopify-inbox-message-classification-model"
+      ],
+      "definition": "The process of making a software system or model available for use by end-users in a live environment, indicating that the developed message classification service is operational.",
+      "evidence_quotes": [
+        {
+          "url": "https://shopify.engineering/shopify-inbox-message-classification-model",
+          "text": "we\u2019re now running in production."
         }
       ]
     }
@@ -2811,6 +3197,24 @@
       "confidence": 0.85
     },
     {
+      "source": "Embeddings",
+      "target": "Universal Sentence Encoder",
+      "relation_type": "part_of",
+      "confidence": 0.8
+    },
+    {
+      "source": "Embeddings",
+      "target": "DistilBERT",
+      "relation_type": "part_of",
+      "confidence": 0.8
+    },
+    {
+      "source": "Embeddings",
+      "target": "Natural Language Processing (NLP)",
+      "relation_type": "related_to",
+      "confidence": 0.7
+    },
+    {
       "source": "Sequence Modeling",
       "target": "Recommendation System",
       "relation_type": "part_of",
@@ -2935,6 +3339,162 @@
       "target": "Opportunity Sizing",
       "relation_type": "related_to",
       "confidence": 0.75
+    },
+    {
+      "source": "Data Agent",
+      "target": "Data Governance",
+      "relation_type": "part_of",
+      "confidence": 0.9
+    },
+    {
+      "source": "Data Agent",
+      "target": "Guardrails",
+      "relation_type": "part_of",
+      "confidence": 0.9
+    },
+    {
+      "source": "Data Agent",
+      "target": "Semantic Foundation / Metrics Store",
+      "relation_type": "depends_on",
+      "confidence": 0.95
+    },
+    {
+      "source": "Data Agent",
+      "target": "Natural Language Interface",
+      "relation_type": "depends_on",
+      "confidence": 0.95
+    },
+    {
+      "source": "Data Agent",
+      "target": "Continuous Monitoring",
+      "relation_type": "part_of",
+      "confidence": 0.9
+    },
+    {
+      "source": "Data Agent",
+      "target": "Action Execution / Workflow Automation",
+      "relation_type": "related_to",
+      "confidence": 0.85
+    },
+    {
+      "source": "Data Agent",
+      "target": "Orchestration Layer",
+      "relation_type": "part_of",
+      "confidence": 0.85
+    },
+    {
+      "source": "Data Agent",
+      "target": "Audit Logging",
+      "relation_type": "related_to",
+      "confidence": 0.75
+    },
+    {
+      "source": "Data Agent",
+      "target": "Role-Based Access Control",
+      "relation_type": "related_to",
+      "confidence": 0.75
+    },
+    {
+      "source": "Data Agent",
+      "target": "Real-time Data Processing",
+      "relation_type": "related_to",
+      "confidence": 0.8
+    },
+    {
+      "source": "Semantic Foundation / Metrics Store",
+      "target": "Data Modeling",
+      "relation_type": "related_to",
+      "confidence": 0.9
+    },
+    {
+      "source": "Data-centric approach",
+      "target": "Pre-trained models",
+      "relation_type": "depends_on",
+      "confidence": 0.9
+    },
+    {
+      "source": "Data-centric approach",
+      "target": "Fine-tuning",
+      "relation_type": "part_of",
+      "confidence": 0.9
+    },
+    {
+      "source": "Natural Language Processing (NLP)",
+      "target": "Data-centric approach",
+      "relation_type": "related_to",
+      "confidence": 0.7
+    },
+    {
+      "source": "Pre-trained models",
+      "target": "Natural Language Processing (NLP)",
+      "relation_type": "related_to",
+      "confidence": 0.8
+    },
+    {
+      "source": "Universal Sentence Encoder",
+      "target": "Pre-trained models",
+      "relation_type": "related_to",
+      "confidence": 0.95
+    },
+    {
+      "source": "DistilBERT",
+      "target": "Pre-trained models",
+      "relation_type": "related_to",
+      "confidence": 0.95
+    },
+    {
+      "source": "Fine-tuning",
+      "target": "Pre-trained models",
+      "relation_type": "prerequisite",
+      "confidence": 0.95
+    },
+    {
+      "source": "Dimensionality Reduction",
+      "target": "Embeddings",
+      "relation_type": "prerequisite",
+      "confidence": 0.85
+    },
+    {
+      "source": "Clustering",
+      "target": "Embeddings",
+      "relation_type": "prerequisite",
+      "confidence": 0.85
+    },
+    {
+      "source": "UMAP",
+      "target": "Dimensionality Reduction",
+      "relation_type": "related_to",
+      "confidence": 0.9
+    },
+    {
+      "source": "HDBScan",
+      "target": "Clustering",
+      "relation_type": "related_to",
+      "confidence": 0.9
+    },
+    {
+      "source": "Semi-supervised learning",
+      "target": "Clustering",
+      "relation_type": "related_to",
+      "confidence": 0.75
+    },
+    {
+      "source": "Semi-supervised learning",
+      "target": "Embeddings",
+      "relation_type": "related_to",
+      "confidence": 0.7
+    },
+    {
+      "source": "Production deployment",
+      "target": "Data-centric approach",
+      "relation_type": "related_to",
+      "confidence": 0.6
+    },
+    {
+      "source": "Production deployment",
+      "target": "Fine-tuning",
+      "relation_type": "related_to",
+      "confidence": 0.6
     }
   ]
 }
