@@ -54,11 +54,22 @@ def test_generate_gateway_v2_uses_structured_output(monkeypatch):
 
 
 def test_create_llm_uses_gateway_client(monkeypatch):
+    """create_llm wiring — no real llm_gatewayV2 folder required (CI-safe)."""
     monkeypatch.setenv("LLM_BASE_URL", "http://127.0.0.1:8100")
-    from backend.utils.gateway_llm import create_llm
 
-    client = create_llm()
+    class FakeLLM:
+        def __init__(self, base_url: str, timeout: float = 600):
+            self.base_url = base_url
+            self.timeout = timeout
+
+    from backend.utils import gateway_llm
+
+    gateway_llm.get_llm_class.cache_clear()
+    monkeypatch.setattr(gateway_llm, "get_llm_class", lambda: FakeLLM)
+
+    client = gateway_llm.create_llm()
     assert client.base_url == "http://127.0.0.1:8100"
+    assert client.timeout == 600.0
 
 
 def test_backend_name_gateway_v2(monkeypatch):
