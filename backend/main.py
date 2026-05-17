@@ -1,6 +1,8 @@
 """FastAPI application for System Design Knowledge Graph."""
 
 import json
+import logging
+from contextlib import asynccontextmanager
 from pathlib import Path
 
 from fastapi import FastAPI, HTTPException
@@ -19,16 +21,34 @@ from backend.models import (
     IngestedArticle,
     SourceGraphView,
 )
-from backend.orchestrator import ingest_url, ingest_url_events
+from backend.agent_loop import agent_orchestrator_available, agent_orchestrator_error
+from backend.logging_setup import configure_logging
+from backend.orchestrator import ingest_url, ingest_url_events_async
 from backend.utils import llm
+
+logger = logging.getLogger(__name__)
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 FRONTEND_DIR = PROJECT_ROOT / "frontend"
+
+
+@asynccontextmanager
+async def lifespan(_app: FastAPI):
+    configure_logging()
+    logger.info(
+        "App started orchestrator=%s llm_backend=%s",
+        "agent" if agent_orchestrator_available() else "unavailable",
+        llm.backend_name(),
+    )
+    yield
+    logger.info("App shutdown")
+
 
 app = FastAPI(
     title="System Design Knowledge Graph",
     description="AI-powered evolving knowledge graph for system design learning",
     version="0.1.0",
+    lifespan=lifespan,
 )
 
 app.add_middleware(
@@ -44,19 +64,18 @@ _graph = GraphManager()
 
 @app.get("/health", response_model=HealthResponse)
 def health() -> HealthResponse:
+    mode = "agent" if agent_orchestrator_available() else "unavailable"
     return HealthResponse(
         llm_configured=llm.is_configured(),
         llm_backend=llm.backend_name(),
+        orchestrator_mode=mode,
     )
 
 
 @app.post("/ingest", response_model=IngestResponse)
 def ingest(body: IngestRequest) -> IngestResponse:
-    if not llm.is_configured():
-        raise HTTPException(
-            status_code=503,
-            detail="LLM not configured. Set GEMINI_API_KEY or LLM_BASE_URL in .env",
-        )
+    if not agent_orchestrator_available():
+        raise HTTPException(status_code=503, detail=agent_orchestrator_error())
     try:
         return ingest_url(body.url, graph=_graph)
     except ValueError as exc:
@@ -133,19 +152,19 @@ def get_full_mermaid() -> dict[str, str]:
 
 
 @app.post("/ingest/stream")
-def ingest_stream(body: IngestRequest) -> StreamingResponse:
-    """Server-Sent Events: live step progress during the 30–60s pipeline."""
-    if not llm.is_configured():
-        raise HTTPException(
-            status_code=503,
-            detail="LLM not configured. Set GEMINI_API_KEY or LLM_BASE_URL in .env",
-        )
+async def ingest_stream(body: IngestRequest) -> StreamingResponse:
+    """Server-Sent Events: live LLM orchestrator + tool logs."""
+    if not agent_orchestrator_available():
+        raise HTTPException(status_code=503, detail=agent_orchestrator_error())
 
-    def event_generator():
+    async def event_generator():
+        logger.info("POST /ingest/stream url=%s", body.url)
         try:
-            for event in ingest_url_events(body.url, graph=_graph):
+            async for event in ingest_url_events_async(body.url, graph=_graph):
+                logger.debug("SSE emit step=%s status=%s", event.step, event.status)
                 yield f"data: {event.model_dump_json()}\n\n"
         except Exception as exc:
+            logger.error("ingest/stream failed url=%s: %s", body.url, exc, exc_info=True)
             err = json.dumps({"step": "error", "status": "error", "message": str(exc)})
             yield f"data: {err}\n\n"
 

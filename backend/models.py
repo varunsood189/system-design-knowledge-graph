@@ -160,6 +160,7 @@ class PipelineStepEvent(BaseModel):
         "relationships",
         "graph",
         "recommendations",
+        "agent_log",
         "done",
         "error",
     ]
@@ -187,6 +188,7 @@ class IngestResponse(BaseModel):
 class HealthResponse(BaseModel):
     llm_configured: bool
     llm_backend: str
+    orchestrator_mode: str = "agent"
 
 
 class ErrorResponse(BaseModel):

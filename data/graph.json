@@ -41,6 +41,24 @@
       "title": "ParaRNN: Large-Scale Nonlinear RNNs, Trainable in Parallel",
       "ingested_at": "2026-05-16T09:34:14.600134+00:00",
       "concept_count": 15
+    },
+    {
+      "url": "https://engineering.atspotify.com/2026/2/our-multi-agent-architecture-for-smarter-advertising",
+      "title": "Our Multi-Agent Architecture for Smarter Advertising | Spotify Engineering",
+      "ingested_at": "2026-05-17T05:32:31.325551+00:00",
+      "concept_count": 15
+    },
+    {
+      "url": "https://medium.com/airbnb-engineering/recommending-travel-destinations-to-help-users-explore-5fa7a81654fb",
+      "title": "Recommending travel destinations to help users explore",
+      "ingested_at": "2026-05-17T06:27:56.357297+00:00",
+      "concept_count": 12
+    },
+    {
+      "url": "https://shopify.engineering/shopify-data-guide-opportunity-sizing",
+      "title": "Shopify Data\u2019s Guide To Opportunity Sizing - Shopify",
+      "ingested_at": "2026-05-17T06:32:10.691698+00:00",
+      "concept_count": 10
     }
   ],
   "nodes": [
@@ -1323,15 +1341,20 @@
       "name": "Transformers",
       "category": "pattern",
       "difficulty": "intermediate",
-      "importance_score": 0.85,
+      "importance_score": 0.9,
       "sources": [
-        "https://machinelearning.apple.com/research/large-scale-rnns"
+        "https://machinelearning.apple.com/research/large-scale-rnns",
+        "https://medium.com/airbnb-engineering/recommending-travel-destinations-to-help-users-explore-5fa7a81654fb"
       ],
-      "definition": "A deep learning model architecture relying on self-attention mechanisms, widely used in NLP. They process sequences in parallel but have quadratic computational cost with sequence length, unlike RNNs' constant inference cost.",
+      "definition": "A neural network architecture, particularly effective for sequence modeling tasks, that uses self-attention mechanisms to weigh the importance of different input elements.",
       "evidence_quotes": [
         {
           "url": "https://machinelearning.apple.com/research/large-scale-rnns",
           "text": "whereas the computation required for a single forward pass through an RNN is the same regardless of how much context came before. This enables constant-time token generation during inference, making them particularly attractive for efficient deployment."
+        },
+        {
+          "url": "https://medium.com/airbnb-engineering/recommending-travel-destinations-to-help-users-explore-5fa7a81654fb",
+          "text": "We use transformers to model sequences of user actions as recorded in various sources: booking history, view history, and search history."
         }
       ]
     },
@@ -1396,6 +1419,630 @@
         {
           "url": "https://shopify.engineering/shopifys-machine-learning-platform-real-time-predictions",
           "text": "State-of-the-art features for online inference services, like rolling deployments, autoscaling, observability, automatic model updates, etc."
+        }
+      ]
+    },
+    {
+      "name": "Multi-agent systems",
+      "category": "pattern",
+      "difficulty": "advanced",
+      "importance_score": 0.95,
+      "sources": [
+        "https://engineering.atspotify.com/2026/2/our-multi-agent-architecture-for-smarter-advertising"
+      ],
+      "definition": "An architectural approach where multiple independent agents collaborate to solve complex problems. Each agent has specialized capabilities and can interact with others or use tools to achieve a common goal.",
+      "evidence_quotes": [
+        {
+          "url": "https://engineering.atspotify.com/2026/2/our-multi-agent-architecture-for-smarter-advertising",
+          "text": "bet on an agentic approach"
+        }
+      ]
+    },
+    {
+      "name": "Orchestration layer",
+      "category": "pattern",
+      "difficulty": "advanced",
+      "importance_score": 0.9,
+      "sources": [
+        "https://engineering.atspotify.com/2026/2/our-multi-agent-architecture-for-smarter-advertising"
+      ],
+      "definition": "A component responsible for coordinating and managing the execution of various services or agents. It ensures that tasks are performed in the correct order and that different parts of the system work together seamlessly.",
+      "evidence_quotes": [
+        {
+          "url": "https://engineering.atspotify.com/2026/2/our-multi-agent-architecture-for-smarter-advertising",
+          "text": "a unified, programmable decision layer that can understand goals, reason over shared signals, and orchestrate our existing Ads APIs"
+        }
+      ]
+    },
+    {
+      "name": "Agentic tools",
+      "category": "pattern",
+      "difficulty": "intermediate",
+      "importance_score": 0.85,
+      "sources": [
+        "https://engineering.atspotify.com/2026/2/our-multi-agent-architecture-for-smarter-advertising"
+      ],
+      "definition": "Existing services or functionalities exposed as interfaces that AI agents can call and utilize to perform actions. This allows agents to leverage pre-built capabilities rather than recreating them.",
+      "evidence_quotes": [
+        {
+          "url": "https://engineering.atspotify.com/2026/2/our-multi-agent-architecture-for-smarter-advertising",
+          "text": "Use our existing Ads services as tools instead of re-implementing capabilities from scratch"
+        }
+      ]
+    },
+    {
+      "name": "Shared context",
+      "category": "pattern",
+      "difficulty": "intermediate",
+      "importance_score": 0.8,
+      "sources": [
+        "https://engineering.atspotify.com/2026/2/our-multi-agent-architecture-for-smarter-advertising"
+      ],
+      "definition": "Information or state that is accessible and understood by multiple agents within a system. This shared context enables agents to coordinate their actions and make informed decisions based on common knowledge.",
+      "evidence_quotes": [
+        {
+          "url": "https://engineering.atspotify.com/2026/2/our-multi-agent-architecture-for-smarter-advertising",
+          "text": "Agents with shared context and shared evaluation logic"
+        }
+      ]
+    },
+    {
+      "name": "Behavioral testing",
+      "category": "pattern",
+      "difficulty": "intermediate",
+      "importance_score": 0.75,
+      "sources": [
+        "https://engineering.atspotify.com/2026/2/our-multi-agent-architecture-for-smarter-advertising"
+      ],
+      "definition": "A testing methodology focused on verifying the observable actions and responses of a system, particularly relevant for complex or autonomous components like AI agents. It assesses how the system behaves in various scenarios.",
+      "evidence_quotes": [
+        {
+          "url": "https://engineering.atspotify.com/2026/2/our-multi-agent-architecture-for-smarter-advertising",
+          "text": "Testing as behavioral evaluation, not only unit + integration tests"
+        }
+      ]
+    },
+    {
+      "name": "Agent observability",
+      "category": "infra",
+      "difficulty": "intermediate",
+      "importance_score": 0.75,
+      "sources": [
+        "https://engineering.atspotify.com/2026/2/our-multi-agent-architecture-for-smarter-advertising"
+      ],
+      "definition": "The capability to monitor and understand the internal state and decision-making process of an AI agent. This includes tracking the agent's reasoning, choices, and the rationale behind them.",
+      "evidence_quotes": [
+        {
+          "url": "https://engineering.atspotify.com/2026/2/our-multi-agent-architecture-for-smarter-advertising",
+          "text": "Observability as \u201cwhat did the agent decide and why?\u201d not just p95s and error budgets"
+        }
+      ]
+    },
+    {
+      "name": "Safety guardrails",
+      "category": "pattern",
+      "difficulty": "intermediate",
+      "importance_score": 0.7,
+      "sources": [
+        "https://engineering.atspotify.com/2026/2/our-multi-agent-architecture-for-smarter-advertising"
+      ],
+      "definition": "Mechanisms implemented to constrain the actions of autonomous or semi-autonomous systems, ensuring they operate within predefined safe boundaries. These prevent undesirable or harmful outcomes.",
+      "evidence_quotes": [
+        {
+          "url": "https://engineering.atspotify.com/2026/2/our-multi-agent-architecture-for-smarter-advertising",
+          "text": "Safety as guardrails on semi-autonomous decisions, not just input validation"
+        }
+      ]
+    },
+    {
+      "name": "Media Planning",
+      "category": "other",
+      "difficulty": "beginner",
+      "importance_score": 0.7,
+      "sources": [
+        "https://engineering.atspotify.com/2026/2/our-multi-agent-architecture-for-smarter-advertising"
+      ],
+      "definition": "The strategic process of determining how to allocate advertising resources across various channels and formats to achieve specific campaign objectives. It involves decisions on targeting, budget, and creative.",
+      "evidence_quotes": [
+        {
+          "url": "https://engineering.atspotify.com/2026/2/our-multi-agent-architecture-for-smarter-advertising",
+          "text": "We chose Media Planning as the initial use case"
+        }
+      ]
+    },
+    {
+      "name": "Google Agent Development Kit (ADK)",
+      "category": "infra",
+      "difficulty": "intermediate",
+      "importance_score": 0.65,
+      "sources": [
+        "https://engineering.atspotify.com/2026/2/our-multi-agent-architecture-for-smarter-advertising"
+      ],
+      "definition": "A software development kit provided by Google to facilitate the creation and deployment of AI agents. It likely offers tools and frameworks for agent design, management, and integration.",
+      "evidence_quotes": [
+        {
+          "url": "https://engineering.atspotify.com/2026/2/our-multi-agent-architecture-for-smarter-advertising",
+          "text": "leverages Google's Agent Development Kit (ADK)"
+        }
+      ]
+    },
+    {
+      "name": "Vertex AI",
+      "category": "infra",
+      "difficulty": "intermediate",
+      "importance_score": 0.65,
+      "sources": [
+        "https://engineering.atspotify.com/2026/2/our-multi-agent-architecture-for-smarter-advertising"
+      ],
+      "definition": "A cloud-based platform by Google for building, deploying, and scaling machine learning models. It provides a unified environment for ML development, often used in conjunction with agent frameworks.",
+      "evidence_quotes": [
+        {
+          "url": "https://engineering.atspotify.com/2026/2/our-multi-agent-architecture-for-smarter-advertising",
+          "text": "and Vertex AI"
+        }
+      ]
+    },
+    {
+      "name": "Parallel execution",
+      "category": "pattern",
+      "difficulty": "intermediate",
+      "importance_score": 0.6,
+      "sources": [
+        "https://engineering.atspotify.com/2026/2/our-multi-agent-architecture-for-smarter-advertising"
+      ],
+      "definition": "The capability to execute multiple tasks or agents concurrently. In this context, it allows different specialized agents to perform their functions simultaneously, speeding up the overall process.",
+      "evidence_quotes": [
+        {
+          "url": "https://engineering.atspotify.com/2026/2/our-multi-agent-architecture-for-smarter-advertising",
+          "text": "specialized AI agents that work in parallel"
+        }
+      ]
+    },
+    {
+      "name": "Machine Learning (ML)",
+      "category": "pattern",
+      "difficulty": "intermediate",
+      "importance_score": 0.6,
+      "sources": [
+        "https://engineering.atspotify.com/2026/2/our-multi-agent-architecture-for-smarter-advertising"
+      ],
+      "definition": "A field of artificial intelligence that enables systems to learn from data and improve their performance on specific tasks without being explicitly programmed. Used here for forecasting and optimization.",
+      "evidence_quotes": [
+        {
+          "url": "https://engineering.atspotify.com/2026/2/our-multi-agent-architecture-for-smarter-advertising",
+          "text": "Forecasting, optimization, and insights already lean heavily on ML"
+        }
+      ]
+    },
+    {
+      "name": "Goal-oriented reasoning",
+      "category": "pattern",
+      "difficulty": "advanced",
+      "importance_score": 0.55,
+      "sources": [
+        "https://engineering.atspotify.com/2026/2/our-multi-agent-architecture-for-smarter-advertising"
+      ],
+      "definition": "The process by which an AI agent analyzes information and makes decisions with the explicit aim of achieving predefined objectives or goals. It involves aligning actions with desired outcomes.",
+      "evidence_quotes": [
+        {
+          "url": "https://engineering.atspotify.com/2026/2/our-multi-agent-architecture-for-smarter-advertising",
+          "text": "understand goals, reason over shared signals"
+        }
+      ]
+    },
+    {
+      "name": "Signal reasoning",
+      "category": "pattern",
+      "difficulty": "advanced",
+      "importance_score": 0.55,
+      "sources": [
+        "https://engineering.atspotify.com/2026/2/our-multi-agent-architecture-for-smarter-advertising"
+      ],
+      "definition": "The ability of an AI system to interpret and draw conclusions from various data inputs or signals. This allows the system to understand the current state and make informed decisions.",
+      "evidence_quotes": [
+        {
+          "url": "https://engineering.atspotify.com/2026/2/our-multi-agent-architecture-for-smarter-advertising",
+          "text": "reason over shared signals"
+        }
+      ]
+    },
+    {
+      "name": "Consistent decision-making",
+      "category": "pattern",
+      "difficulty": "intermediate",
+      "importance_score": 0.5,
+      "sources": [
+        "https://engineering.atspotify.com/2026/2/our-multi-agent-architecture-for-smarter-advertising"
+      ],
+      "definition": "Ensuring that the same decision logic is applied across different parts of a system or different user interfaces. This prevents fragmentation and provides a unified user experience.",
+      "evidence_quotes": [
+        {
+          "url": "https://engineering.atspotify.com/2026/2/our-multi-agent-architecture-for-smarter-advertising",
+          "text": "that should consistently show up in Spotify Ads Manager recommendations, Salesforce plans, and Slack workflows"
+        }
+      ]
+    },
+    {
+      "name": "Language Modeling",
+      "category": "pattern",
+      "difficulty": "intermediate",
+      "importance_score": 0.75,
+      "sources": [
+        "https://medium.com/airbnb-engineering/recommending-travel-destinations-to-help-users-explore-5fa7a81654fb"
+      ],
+      "definition": "A probabilistic model that predicts the likelihood of a sequence of words or tokens. It's adapted here to predict user destination intent based on sequences of actions.",
+      "evidence_quotes": [
+        {
+          "url": "https://medium.com/airbnb-engineering/recommending-travel-destinations-to-help-users-explore-5fa7a81654fb",
+          "text": "While the framework is inspired by language modeling, we introduce several key adaptations in training data creation, model architecture, and loss function to tailor it to the destination recommendation problem in the travel domain."
+        }
+      ]
+    },
+    {
+      "name": "Multi-task Learning",
+      "category": "pattern",
+      "difficulty": "intermediate",
+      "importance_score": 0.8,
+      "sources": [
+        "https://medium.com/airbnb-engineering/recommending-travel-destinations-to-help-users-explore-5fa7a81654fb"
+      ],
+      "definition": "A machine learning approach where a single model is trained to perform multiple related tasks simultaneously, often leading to improved generalization and representation learning.",
+      "evidence_quotes": [
+        {
+          "url": "https://medium.com/airbnb-engineering/recommending-travel-destinations-to-help-users-explore-5fa7a81654fb",
+          "text": "To incorporate this information into our framework, we use multi-task learning. Specifically, we add multiple prediction heads at the final layer of the model, each corresponding to a different prediction task."
+        }
+      ]
+    },
+    {
+      "name": "Embeddings",
+      "category": "pattern",
+      "difficulty": "intermediate",
+      "importance_score": 0.7,
+      "sources": [
+        "https://medium.com/airbnb-engineering/recommending-travel-destinations-to-help-users-explore-5fa7a81654fb"
+      ],
+      "definition": "A technique used to represent discrete variables, like user actions or locations, as dense, low-dimensional vectors in a continuous vector space, capturing semantic relationships.",
+      "evidence_quotes": [
+        {
+          "url": "https://medium.com/airbnb-engineering/recommending-travel-destinations-to-help-users-explore-5fa7a81654fb",
+          "text": "Each action is represented by the sum of embeddings of city / region / days to today."
+        }
+      ]
+    },
+    {
+      "name": "Sequence Modeling",
+      "category": "pattern",
+      "difficulty": "intermediate",
+      "importance_score": 0.85,
+      "sources": [
+        "https://medium.com/airbnb-engineering/recommending-travel-destinations-to-help-users-explore-5fa7a81654fb"
+      ],
+      "definition": "A type of machine learning that deals with sequential data, such as time series or text, aiming to predict future elements or understand patterns within the sequence.",
+      "evidence_quotes": [
+        {
+          "url": "https://medium.com/airbnb-engineering/recommending-travel-destinations-to-help-users-explore-5fa7a81654fb",
+          "text": "We use transformers to model sequences of user actions as recorded in various sources: booking history, view history, and search history."
+        }
+      ]
+    },
+    {
+      "name": "Recommendation System",
+      "category": "pattern",
+      "difficulty": "intermediate",
+      "importance_score": 0.9,
+      "sources": [
+        "https://medium.com/airbnb-engineering/recommending-travel-destinations-to-help-users-explore-5fa7a81654fb"
+      ],
+      "definition": "A system that predicts user preferences and recommends relevant items, in this case, travel destinations, to enhance user experience and drive engagement.",
+      "evidence_quotes": [
+        {
+          "url": "https://medium.com/airbnb-engineering/recommending-travel-destinations-to-help-users-explore-5fa7a81654fb",
+          "text": "we built a destination recommendation model that helps users spark inspiration and narrow down choices to make journeys smoother."
+        }
+      ]
+    },
+    {
+      "name": "Personalization",
+      "category": "pattern",
+      "difficulty": "beginner",
+      "importance_score": 0.8,
+      "sources": [
+        "https://medium.com/airbnb-engineering/recommending-travel-destinations-to-help-users-explore-5fa7a81654fb"
+      ],
+      "definition": "Tailoring content or recommendations to individual users based on their past behavior, preferences, and other data.",
+      "evidence_quotes": [
+        {
+          "url": "https://medium.com/airbnb-engineering/recommending-travel-destinations-to-help-users-explore-5fa7a81654fb",
+          "text": "(Users are able to opt out of this personalization.)"
+        }
+      ]
+    },
+    {
+      "name": "Data Augmentation",
+      "category": "pattern",
+      "difficulty": "intermediate",
+      "importance_score": 0.75,
+      "sources": [
+        "https://medium.com/airbnb-engineering/recommending-travel-destinations-to-help-users-explore-5fa7a81654fb"
+      ],
+      "definition": "Techniques used to increase the size and diversity of a training dataset by generating new data points from existing ones, here applied to balance different user behaviors.",
+      "evidence_quotes": [
+        {
+          "url": "https://medium.com/airbnb-engineering/recommending-travel-destinations-to-help-users-explore-5fa7a81654fb",
+          "text": "For each booking, we create 14 training examples in total. There are two parts: Seven training examples for active users... Seven training examples for dormant users..."
+        }
+      ]
+    },
+    {
+      "name": "Feature Engineering",
+      "category": "pattern",
+      "difficulty": "intermediate",
+      "importance_score": 0.7,
+      "sources": [
+        "https://medium.com/airbnb-engineering/recommending-travel-destinations-to-help-users-explore-5fa7a81654fb"
+      ],
+      "definition": "The process of selecting, transforming, and creating features from raw data to improve the performance of machine learning models.",
+      "evidence_quotes": [
+        {
+          "url": "https://medium.com/airbnb-engineering/recommending-travel-destinations-to-help-users-explore-5fa7a81654fb",
+          "text": "how to effectively integrate diverse signals (users\u2019 long term interests vs. short term interests), how to balance dormant user behavior vs. active user behavior, and how to encode rich geolocation knowledge."
+        }
+      ]
+    },
+    {
+      "name": "Geolocation Knowledge",
+      "category": "other",
+      "difficulty": "intermediate",
+      "importance_score": 0.75,
+      "sources": [
+        "https://medium.com/airbnb-engineering/recommending-travel-destinations-to-help-users-explore-5fa7a81654fb"
+      ],
+      "definition": "Information and understanding related to geographical locations, including their relationships (e.g., cities within regions), used to enrich the recommendation model.",
+      "evidence_quotes": [
+        {
+          "url": "https://medium.com/airbnb-engineering/recommending-travel-destinations-to-help-users-explore-5fa7a81654fb",
+          "text": "how to encode rich geolocation knowledge."
+        }
+      ]
+    },
+    {
+      "name": "A/B Testing",
+      "category": "infra",
+      "difficulty": "intermediate",
+      "importance_score": 0.7,
+      "sources": [
+        "https://medium.com/airbnb-engineering/recommending-travel-destinations-to-help-users-explore-5fa7a81654fb"
+      ],
+      "definition": "A method of comparing two versions of a webpage or app against each other to determine which one performs better, used here to validate model impact.",
+      "evidence_quotes": [
+        {
+          "url": "https://medium.com/airbnb-engineering/recommending-travel-destinations-to-help-users-explore-5fa7a81654fb",
+          "text": "Online A/B testing shows significant booking gains in regions where English is not the primary language"
+        }
+      ]
+    },
+    {
+      "name": "Loss Function",
+      "category": "pattern",
+      "difficulty": "intermediate",
+      "importance_score": 0.6,
+      "sources": [
+        "https://medium.com/airbnb-engineering/recommending-travel-destinations-to-help-users-explore-5fa7a81654fb"
+      ],
+      "definition": "A function that quantifies the error or 'loss' of a model's predictions compared to the true values, guiding the model's learning process.",
+      "evidence_quotes": [
+        {
+          "url": "https://medium.com/airbnb-engineering/recommending-travel-destinations-to-help-users-explore-5fa7a81654fb",
+          "text": "we introduce several key adaptations in training data creation, model architecture, and loss function to tailor it to the destination recommendation problem"
+        }
+      ]
+    },
+    {
+      "name": "Opportunity Sizing",
+      "category": "pattern",
+      "difficulty": "intermediate",
+      "importance_score": 1.0,
+      "sources": [
+        "https://shopify.engineering/shopify-data-guide-opportunity-sizing"
+      ],
+      "definition": "A method used by data scientists to quantify the potential impact and value of an initiative before committing resources. It helps in prioritizing efforts by assessing the potential return on investment.",
+      "evidence_quotes": [
+        {
+          "url": "https://shopify.engineering/shopify-data-guide-opportunity-sizing",
+          "text": "Opportunity sizing is a method that data scientists can use to quantify the potential impact of an initiative ahead of making the decision to invest in it."
+        },
+        {
+          "url": "https://shopify.engineering/shopify-data-guide-opportunity-sizing",
+          "text": "Opportunity sizing is a method that data scientists can use to quantify the potential impact of an initiative ahead of making the decision to invest in it."
+        }
+      ]
+    },
+    {
+      "name": "Directional T-Shirt Sizing",
+      "category": "pattern",
+      "difficulty": "beginner",
+      "importance_score": 0.7,
+      "sources": [
+        "https://shopify.engineering/shopify-data-guide-opportunity-sizing"
+      ],
+      "definition": "A quick, heuristic-based approach to opportunity sizing that relies on rough estimates, subject matter expert intuition, and industry standards. It prioritizes speed over accuracy and is suitable for early-stage ideation.",
+      "evidence_quotes": [
+        {
+          "url": "https://shopify.engineering/shopify-data-guide-opportunity-sizing",
+          "text": "Directional t-shirt sizing is the most common approach when opportunity sizing an existing initiative and is a method anyone (not just data scientists) can do with a bit of data to inform their intuition."
+        },
+        {
+          "url": "https://shopify.engineering/shopify-data-guide-opportunity-sizing",
+          "text": "Directional t-shirt sizing is the most common approach when opportunity sizing an existing initiative and is a method anyone (not just data scientists) can do with a bit of data to inform their intuition."
+        }
+      ]
+    },
+    {
+      "name": "Bottom-Up Using Comparables",
+      "category": "pattern",
+      "difficulty": "intermediate",
+      "importance_score": 0.8,
+      "sources": [
+        "https://shopify.engineering/shopify-data-guide-opportunity-sizing"
+      ],
+      "definition": "A more accurate opportunity sizing method that uses the performance data of a specific, similar product or system as a benchmark. It requires data analysis skills to derive insights and make data-informed decisions.",
+      "evidence_quotes": [
+        {
+          "url": "https://shopify.engineering/shopify-data-guide-opportunity-sizing",
+          "text": "Unlike directional t-shirt sizing, the bottom-up method uses the performance of a specific comparable product or system as a benchmark, and relies on the specific skills of a data scientist to make data-informed decisions."
+        },
+        {
+          "url": "https://shopify.engineering/shopify-data-guide-opportunity-sizing",
+          "text": "Unlike directional t-shirt sizing, the bottom-up method uses the performance of a specific comparable product or system as a benchmark, and relies on the specific skills of a data scientist to make data-informed decisions."
+        }
+      ]
+    },
+    {
+      "name": "Assumptions",
+      "category": "pattern",
+      "difficulty": "beginner",
+      "importance_score": 0.8,
+      "sources": [
+        "https://shopify.engineering/shopify-data-guide-opportunity-sizing"
+      ],
+      "definition": "Underlying beliefs or hypotheses about how a system or initiative will perform, which are used in calculations and estimations. Documenting assumptions is crucial for transparency and validation.",
+      "evidence_quotes": [
+        {
+          "url": "https://shopify.engineering/shopify-data-guide-opportunity-sizing",
+          "text": "Be clear and document your assumptions. As you think about your initiative, be clear and document your assumptions about its potential impact and the why behind each assumption."
+        },
+        {
+          "url": "https://shopify.engineering/shopify-data-guide-opportunity-sizing",
+          "text": "Be clear and document your assumptions."
+        }
+      ]
+    },
+    {
+      "name": "Click-Through Rate (CTR)",
+      "category": "other",
+      "difficulty": "beginner",
+      "importance_score": 0.6,
+      "sources": [
+        "https://shopify.engineering/shopify-data-guide-opportunity-sizing"
+      ],
+      "definition": "A metric used to measure the effectiveness of a link or advertisement, calculated as the number of clicks divided by the number of impressions. It's often used as a performance indicator in digital marketing.",
+      "evidence_quotes": [
+        {
+          "url": "https://shopify.engineering/shopify-data-guide-opportunity-sizing",
+          "text": "Let\u2019s say we identified that our current non-localized email in Italy has a click through rate (CTR) of three percent, while our localized email in France has a CTR of five percent over one year."
+        },
+        {
+          "url": "https://shopify.engineering/shopify-data-guide-opportunity-sizing",
+          "text": "Let\u2019s say we identified that our current non-localized email in Italy has a click through rate (CTR) of three percent, while our localized email in France has a CTR of five percent over one year."
+        }
+      ]
+    },
+    {
+      "name": "Conversion Rate",
+      "category": "other",
+      "difficulty": "beginner",
+      "importance_score": 0.6,
+      "sources": [
+        "https://shopify.engineering/shopify-data-guide-opportunity-sizing"
+      ],
+      "definition": "The percentage of users who complete a desired action, such as making a purchase or signing up for a service, out of the total number of users who interact with a system or campaign.",
+      "evidence_quotes": [
+        {
+          "url": "https://shopify.engineering/shopify-data-guide-opportunity-sizing",
+          "text": "What is the conversion rate of the sequence? Or in other words, of those that opened your welcome email, how many converted to customers?"
+        },
+        {
+          "url": "https://shopify.engineering/shopify-data-guide-opportunity-sizing",
+          "text": "What is the conversion rate of the sequence? Or in other words, of those that opened your welcome email, how many converted to customers?"
+        }
+      ]
+    },
+    {
+      "name": "Second Order Thinking",
+      "category": "pattern",
+      "difficulty": "intermediate",
+      "importance_score": 0.6,
+      "sources": [
+        "https://shopify.engineering/shopify-data-guide-opportunity-sizing"
+      ],
+      "definition": "A problem-solving approach that involves considering not only the immediate consequences of a decision but also the subsequent, indirect effects. It encourages a deeper analysis of potential ripple effects and interactions.",
+      "evidence_quotes": [
+        {
+          "url": "https://shopify.engineering/shopify-data-guide-opportunity-sizing",
+          "text": "Second order thinking is a great asset here. It\u2019s beneficial for you to consider potential modifiers and their impact."
+        },
+        {
+          "url": "https://shopify.engineering/shopify-data-guide-opportunity-sizing",
+          "text": "Second order thinking is a great asset here. It\u2019s beneficial for you to consider potential modifiers and their impact."
+        }
+      ]
+    },
+    {
+      "name": "Top-line Metric",
+      "category": "other",
+      "difficulty": "beginner",
+      "importance_score": 0.5,
+      "sources": [
+        "https://shopify.engineering/shopify-data-guide-opportunity-sizing"
+      ],
+      "definition": "The primary, most significant metric that reflects the overall success or performance of a business or initiative, often related to revenue or core user engagement. Opportunity sizing aims to estimate the impact on this metric.",
+      "evidence_quotes": [
+        {
+          "url": "https://shopify.engineering/shopify-data-guide-opportunity-sizing",
+          "text": "To answer this, you\u2019ll want to estimate the impact on your top-line metric."
+        }
+      ]
+    },
+    {
+      "name": "Annualized View",
+      "category": "pattern",
+      "difficulty": "beginner",
+      "importance_score": 0.5,
+      "sources": [
+        "https://shopify.engineering/shopify-data-guide-opportunity-sizing"
+      ],
+      "definition": "A method of projecting or analyzing data over a one-year period to enable consistent comparison between different initiatives or timeframes. It standardizes impact assessment for better decision-making.",
+      "evidence_quotes": [
+        {
+          "url": "https://shopify.engineering/shopify-data-guide-opportunity-sizing",
+          "text": "we recommend an annualized view of the impact so you can easily compare across initiatives."
+        },
+        {
+          "url": "https://shopify.engineering/shopify-data-guide-opportunity-sizing",
+          "text": "we recommend an annualized view of the impact so you can easily compare across initiatives."
+        }
+      ]
+    },
+    {
+      "name": "Comparable System",
+      "category": "pattern",
+      "difficulty": "intermediate",
+      "importance_score": 0.75,
+      "sources": [
+        "https://shopify.engineering/shopify-data-guide-opportunity-sizing"
+      ],
+      "definition": "A system or product whose performance metrics and characteristics are used as a reference point to estimate the potential impact of a new or modified initiative. It serves as a benchmark for data-informed decision-making.",
+      "evidence_quotes": [
+        {
+          "url": "https://shopify.engineering/shopify-data-guide-opportunity-sizing",
+          "text": "The bottom-up method uses the performance of a specific comparable product or system as a benchmark..."
+        }
+      ]
+    },
+    {
+      "name": "Top-Line Metric",
+      "category": "other",
+      "difficulty": "intermediate",
+      "importance_score": 0.6,
+      "sources": [
+        "https://shopify.engineering/shopify-data-guide-opportunity-sizing"
+      ],
+      "definition": "A primary business metric, often revenue or user count, that represents the overall success or performance of a business or initiative. Changes in top-line metrics are closely monitored to gauge business health.",
+      "evidence_quotes": [
+        {
+          "url": "https://shopify.engineering/shopify-data-guide-opportunity-sizing",
+          "text": "you\u2019ll want to estimate the impact on your top-line metric."
         }
       ]
     }
@@ -2036,6 +2683,258 @@
       "target": "Selective State Space Models (SSMs)",
       "relation_type": "part_of",
       "confidence": 0.85
+    },
+    {
+      "source": "Transformers",
+      "target": "Sequence Modeling",
+      "relation_type": "part_of",
+      "confidence": 0.9
+    },
+    {
+      "source": "Transformers",
+      "target": "Language Modeling",
+      "relation_type": "related_to",
+      "confidence": 0.8
+    },
+    {
+      "source": "Transformers",
+      "target": "Embeddings",
+      "relation_type": "related_to",
+      "confidence": 0.7
+    },
+    {
+      "source": "Transformers",
+      "target": "Recommendation System",
+      "relation_type": "part_of",
+      "confidence": 0.9
+    },
+    {
+      "source": "Multi-agent systems",
+      "target": "Orchestration layer",
+      "relation_type": "part_of",
+      "confidence": 0.9
+    },
+    {
+      "source": "Multi-agent systems",
+      "target": "Consistent decision-making",
+      "relation_type": "related_to",
+      "confidence": 0.85
+    },
+    {
+      "source": "Multi-agent systems",
+      "target": "Parallel execution",
+      "relation_type": "part_of",
+      "confidence": 0.8
+    },
+    {
+      "source": "Multi-agent systems",
+      "target": "Agent observability",
+      "relation_type": "part_of",
+      "confidence": 0.8
+    },
+    {
+      "source": "Multi-agent systems",
+      "target": "Safety guardrails",
+      "relation_type": "part_of",
+      "confidence": 0.8
+    },
+    {
+      "source": "Multi-agent systems",
+      "target": "Shared context",
+      "relation_type": "part_of",
+      "confidence": 0.8
+    },
+    {
+      "source": "Multi-agent systems",
+      "target": "Behavioral testing",
+      "relation_type": "related_to",
+      "confidence": 0.75
+    },
+    {
+      "source": "Orchestration layer",
+      "target": "Agentic tools",
+      "relation_type": "part_of",
+      "confidence": 0.85
+    },
+    {
+      "source": "Orchestration layer",
+      "target": "Goal-oriented reasoning",
+      "relation_type": "depends_on",
+      "confidence": 0.85
+    },
+    {
+      "source": "Orchestration layer",
+      "target": "Signal reasoning",
+      "relation_type": "depends_on",
+      "confidence": 0.85
+    },
+    {
+      "source": "Media Planning",
+      "target": "Multi-agent systems",
+      "relation_type": "related_to",
+      "confidence": 0.75
+    },
+    {
+      "source": "Google Agent Development Kit (ADK)",
+      "target": "Multi-agent systems",
+      "relation_type": "part_of",
+      "confidence": 0.8
+    },
+    {
+      "source": "Vertex AI",
+      "target": "Multi-agent systems",
+      "relation_type": "part_of",
+      "confidence": 0.8
+    },
+    {
+      "source": "Machine Learning (ML)",
+      "target": "Orchestration layer",
+      "relation_type": "related_to",
+      "confidence": 0.8
+    },
+    {
+      "source": "Language Modeling",
+      "target": "Recommendation System",
+      "relation_type": "related_to",
+      "confidence": 0.75
+    },
+    {
+      "source": "Multi-task Learning",
+      "target": "Recommendation System",
+      "relation_type": "part_of",
+      "confidence": 0.8
+    },
+    {
+      "source": "Embeddings",
+      "target": "Sequence Modeling",
+      "relation_type": "part_of",
+      "confidence": 0.85
+    },
+    {
+      "source": "Sequence Modeling",
+      "target": "Recommendation System",
+      "relation_type": "part_of",
+      "confidence": 0.85
+    },
+    {
+      "source": "Recommendation System",
+      "target": "Personalization",
+      "relation_type": "related_to",
+      "confidence": 0.8
+    },
+    {
+      "source": "Personalization",
+      "target": "Recommendation System",
+      "relation_type": "part_of",
+      "confidence": 0.8
+    },
+    {
+      "source": "Data Augmentation",
+      "target": "Recommendation System",
+      "relation_type": "part_of",
+      "confidence": 0.75
+    },
+    {
+      "source": "Data Augmentation",
+      "target": "Feature Engineering",
+      "relation_type": "related_to",
+      "confidence": 0.7
+    },
+    {
+      "source": "Feature Engineering",
+      "target": "Recommendation System",
+      "relation_type": "prerequisite",
+      "confidence": 0.8
+    },
+    {
+      "source": "Geolocation Knowledge",
+      "target": "Recommendation System",
+      "relation_type": "part_of",
+      "confidence": 0.75
+    },
+    {
+      "source": "Geolocation Knowledge",
+      "target": "Feature Engineering",
+      "relation_type": "related_to",
+      "confidence": 0.7
+    },
+    {
+      "source": "A/B Testing",
+      "target": "Recommendation System",
+      "relation_type": "related_to",
+      "confidence": 0.7
+    },
+    {
+      "source": "Loss Function",
+      "target": "Recommendation System",
+      "relation_type": "part_of",
+      "confidence": 0.6
+    },
+    {
+      "source": "Loss Function",
+      "target": "Multi-task Learning",
+      "relation_type": "related_to",
+      "confidence": 0.6
+    },
+    {
+      "source": "Directional T-Shirt Sizing",
+      "target": "Opportunity Sizing",
+      "relation_type": "part_of",
+      "confidence": 0.9
+    },
+    {
+      "source": "Bottom-Up Using Comparables",
+      "target": "Opportunity Sizing",
+      "relation_type": "part_of",
+      "confidence": 0.9
+    },
+    {
+      "source": "Assumptions",
+      "target": "Opportunity Sizing",
+      "relation_type": "related_to",
+      "confidence": 0.75
+    },
+    {
+      "source": "Click-Through Rate (CTR)",
+      "target": "Opportunity Sizing",
+      "relation_type": "related_to",
+      "confidence": 0.7
+    },
+    {
+      "source": "Conversion Rate",
+      "target": "Opportunity Sizing",
+      "relation_type": "related_to",
+      "confidence": 0.7
+    },
+    {
+      "source": "Second Order Thinking",
+      "target": "Opportunity Sizing",
+      "relation_type": "related_to",
+      "confidence": 0.7
+    },
+    {
+      "source": "Top-line Metric",
+      "target": "Opportunity Sizing",
+      "relation_type": "related_to",
+      "confidence": 0.7
+    },
+    {
+      "source": "Annualized View",
+      "target": "Opportunity Sizing",
+      "relation_type": "part_of",
+      "confidence": 0.85
+    },
+    {
+      "source": "Comparable System",
+      "target": "Bottom-Up Using Comparables",
+      "relation_type": "related_to",
+      "confidence": 0.8
+    },
+    {
+      "source": "Top-Line Metric",
+      "target": "Opportunity Sizing",
+      "relation_type": "related_to",
+      "confidence": 0.75
     }
   ]
 }

@@ -1,13 +1,31 @@
 [project]
 name = "system-design-knowledge-graph"
 version = "0.1.0"
-description = "AI-powered evolving knowledge graph for system design learning"
+description = "AI-powered evolving knowledge graph for system design learning (FastAPI, MCP, Gemini planner)"
 readme = "README.md"
 requires-python = ">=3.12"
+license = { text = "MIT" }
+keywords = [
+    "knowledge-graph",
+    "system-design",
+    "fastapi",
+    "mcp",
+    "gemini",
+    "llm-agents",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Framework :: FastAPI",
+    "Intended Audience :: Education",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
 dependencies = [
     "fastapi>=0.136.1",
     "google-generativeai>=0.8.6",
     "httpx>=0.28.1",
+    "fastmcp>=2.0.0",
+    "mcp>=1.9.0",
     "networkx>=3.6.1",
     "pydantic>=2.13.4",
     "python-dotenv>=1.2.2",

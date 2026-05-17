@@ -53,6 +53,14 @@ def test_generate_gateway_v2_uses_structured_output(monkeypatch):
         assert rf["strict"] is True
 
 
+def test_create_llm_uses_gateway_client(monkeypatch):
+    monkeypatch.setenv("LLM_BASE_URL", "http://127.0.0.1:8100")
+    from backend.utils.gateway_llm import create_llm
+
+    client = create_llm()
+    assert client.base_url == "http://127.0.0.1:8100"
+
+
 def test_backend_name_gateway_v2(monkeypatch):
     monkeypatch.delenv("GEMINI_API_KEY", raising=False)
     monkeypatch.setenv("LLM_BASE_URL", "http://127.0.0.1:8100")

@@ -5,6 +5,9 @@
 !.env.example
 Untitled
 Untitled*
+*.pem
+*credentials.json
+*credentials.yaml
 
 # Python
 __pycache__/

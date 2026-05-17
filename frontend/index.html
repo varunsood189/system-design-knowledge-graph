@@ -123,19 +123,50 @@
     .detail-box h3 { margin: 0 0 0.5rem; font-size: 1rem; }
     .tag { display: inline-block; background: var(--border); padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; margin-right: 0.35rem; }
     .concept-link { cursor: pointer; color: var(--accent); text-decoration: underline; }
+    .mode-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      background: var(--border);
+      margin-left: 0.5rem;
+    }
+    .mode-badge.ok { color: var(--ok); }
+    .mode-badge.warn { color: var(--run); }
+    #agentLog {
+      font-family: ui-monospace, monospace;
+      font-size: 0.78rem;
+      background: var(--bg);
+      border-radius: 6px;
+      padding: 0.75rem;
+      max-height: 320px;
+      overflow-y: auto;
+      margin: 0;
+      list-style: none;
+    }
+    #agentLog li {
+      padding: 0.35rem 0;
+      border-bottom: 1px solid var(--border);
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    #agentLog li.log-llm { color: #93c5fd; }
+    #agentLog li.log-tool { color: var(--ok); }
+    #agentLog li.log-error { color: #f87171; }
+    #agentLog li.log-info { color: var(--muted); }
   </style>
 </head>
 <body>
   <h1>System Design Knowledge Graph</h1>
-  <p class="subtitle">Turn engineering blogs into a connected learning graph — you do not need to read the full article.</p>
+  <p class="subtitle">
+    Turn engineering blogs into a connected learning graph.
+    <span id="orchestratorBadge" class="mode-badge warn">orchestrator …</span>
+  </p>
 
   <div class="card how-it-works">
-    <strong>Why the blog URL?</strong> The blog is the <em>source document</em>. We download it, extract clean text, then run 3 LLM steps:
-    (1) concepts with quotes from the text,
-    (2) how concepts relate,
-    (3) what to learn next.
-    Results merge into <code>data/graph.json</code> — a persistent graph that grows with every article you ingest.
-    <strong>You can learn from the evidence snippets below</strong> without opening the blog; the link is there if you want depth.
+    <strong>LLM orchestrator:</strong> Gemini JSON planner chooses MCP tools each turn (FastMCP + trafilatura + structured agents).
+    Watch the <strong>live agent log</strong> for every planner decision and tool result.
+    Graph persists in <code>data/graph.json</code>.
   </div>
 
   <div class="card">
@@ -146,7 +177,9 @@
   </div>
 
   <div id="progressCard" class="card hidden">
-    <h2>Pipeline progress</h2>
+    <h2>LLM orchestrator log</h2>
+    <ul id="agentLog"></ul>
+    <h2 style="margin-top:1.25rem;font-size:1rem">Step checklist</h2>
     <ul class="steps">
       <li id="step-extract" class="step-pending">
         <span class="step-icon">○</span>
@@ -290,6 +323,39 @@
       STEP_IDS.forEach((s) => setStep(s, "pending"));
     }
 
+    function clearAgentLog() {
+      const log = $("agentLog");
+      if (log) log.innerHTML = "";
+    }
+
+    function appendAgentLog(message, cssClass) {
+      const log = $("agentLog");
+      if (!log) return;
+      const li = document.createElement("li");
+      li.className = cssClass || "log-info";
+      li.textContent = message;
+      log.appendChild(li);
+      log.scrollTop = log.scrollHeight;
+    }
+
+    async function loadHealth() {
+      try {
+        const res = await fetch(API + "/health");
+        const h = await res.json();
+        const badge = $("orchestratorBadge");
+        if (!badge) return;
+        if (h.orchestrator_mode === "agent") {
+          badge.textContent = "LLM orchestrator active";
+          badge.className = "mode-badge ok";
+        } else {
+          badge.textContent = "orchestrator unavailable — check .env";
+          badge.className = "mode-badge warn";
+        }
+      } catch {
+        $("orchestratorBadge").textContent = "API offline";
+      }
+    }
+
     async function renderMermaid(elId, code) {
       const el = $(elId);
       if (!el) return;
@@ -359,9 +425,11 @@
 
     async function ingestStream(url) {
       resetSteps();
+      clearAgentLog();
       $("progressCard").classList.remove("hidden");
       $("results").classList.add("hidden");
       $("error").classList.add("hidden");
+      appendAgentLog("Starting ingest for " + url, "log-info");
 
       const res = await fetch(API + "/ingest/stream", {
         method: "POST",
@@ -396,6 +464,16 @@
           }
 
           if (event.step === "error") throw new Error(event.message);
+
+          if (event.step === "agent_log") {
+            const d = event.detail || {};
+            let cls = "log-info";
+            if (d.tool_calls && d.tool_calls.length) cls = "log-llm";
+            else if (d.tool_name) cls = "log-tool";
+            if (event.status === "error") cls = "log-error";
+            const ts = new Date().toLocaleTimeString();
+            appendAgentLog("[" + ts + "] " + event.message, cls);
+          }
 
           if (STEP_IDS.includes(event.step)) {
             if (event.status === "running") setStep(event.step, "running", event.message);
@@ -535,6 +613,7 @@
     });
 
 
+    loadHealth();
     loadFullGraph();
     loadExploreData();
   </script>
