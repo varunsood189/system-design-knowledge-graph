@@ -1,8 +1,12 @@
 # System Design Knowledge Graph
 
-An AI-powered evolving knowledge graph for system design learning. Ingest engineering blog URLs, extract concepts and relationships with LLM agents, persist an evolving graph in `data/graph.json`, and generate contextual learning recommendations.
+**Agentic knowledge graph** that ingests engineering blog URLs, extracts concepts and relationships with LLM tool-calling agents, and grows a persistent graph you can query and learn from.
 
-**Stack:** FastAPI · NetworkX · trafilatura · [FastMCP](https://github.com/jlowin/fastmcp) · Gemini JSON planner · optional LLM Gateway V2
+A Gemini JSON **planner** chooses MCP tools each turn (extract → concepts → relationships → merge → recommendations). The UI streams a live **agent log** over SSE so you can see every planner decision and tool result. Structured agents inside the MCP server emit Pydantic-validated JSON; the graph lives in NetworkX and `data/graph.json`, with Mermaid views for exploration.
+
+**Stack:** FastAPI · [FastMCP](https://github.com/jlowin/fastmcp) · NetworkX · trafilatura · Gemini JSON planner · optional LLM Gateway V2
+
+**What recruiters should notice:** multi-turn LLM orchestration over MCP tools, live SSE agent traces, schema-validated agent outputs, and a durable knowledge graph—not a one-shot summarizer.
 
 ---
 
@@ -12,7 +16,7 @@ An AI-powered evolving knowledge graph for system design learning. Ingest engine
 - **Live agent log** in the UI via Server-Sent Events (`POST /ingest/stream`)
 - **Structured JSON agents** — Pydantic-validated concept, relationship, and recommendation outputs (`prompts/*.txt`)
 - **Persistent graph** — NetworkX merged into `data/graph.json` with Mermaid visualization
-- **Dual LLM routing** — Direct Gemini or course LLM Gateway V2 for inner agents inside MCP tools
+- **Dual LLM routing** — Direct Gemini or optional LLM Gateway V2 for inner agents inside MCP tools
 
 ---
 
@@ -94,7 +98,7 @@ Routing in `backend/utils/llm.py`: **Gemini direct** if `GEMINI_API_KEY` is set,
 ### 1. Clone and install
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/varunsood189/system-design-knowledge-graph.git
 cd system-design-knowledge-graph
 cp .env.example .env
 # Edit .env locally only — never commit this file
@@ -160,10 +164,10 @@ curl -N -X POST http://127.0.0.1:8000/ingest/stream \
 
 ## Optional: LLM Gateway V2
 
-Use the course **llm_gatewayV2** on port 8100 for inner agents (concepts / relationships / recommendations) while keeping the **Gemini planner** for orchestration:
+Route inner agents (concepts / relationships / recommendations) through an OpenAI-compatible gateway on port 8100 while keeping the **Gemini planner** for orchestration:
 
 ```bash
-# Terminal 1 — optional course gateway (path varies by install)
+# Terminal 1 — optional gateway (path varies by install)
 cd /path/to/llm_gatewayV2
 ./run.sh
 ```
@@ -202,7 +206,7 @@ Keep provider keys in your **local** `.env` or the gateway’s parent `.env` —
 ```
 system-design-knowledge-graph/
 ├── backend/
-│   ├── main.py                 # FastAPI app
+│   ├── main.py                   # FastAPI app
 │   ├── orchestrator.py           # Ingest entry (agent mode)
 │   ├── agent_loop.py             # Gemini planner + fastmcp client
 │   ├── agent_orchestrator.py     # SSE events + UI agent log
@@ -255,11 +259,9 @@ Server logs go to the terminal running uvicorn (`stderr`).
 
 ---
 
-## Prompt qualification
+## Design notes
 
-Specification: [QUALIFIED_PROMPT.md](QUALIFIED_PROMPT.md)
-
-Aligned capabilities: explicit reasoning, structured Pydantic output, tool separation (MCP), multi-turn planner loop, instructional recommendations, self-checks on agents.
+Agent prompts and orchestrator rules live in [QUALIFIED_PROMPT.md](QUALIFIED_PROMPT.md): explicit reasoning, structured Pydantic output, MCP tool separation, multi-turn planner loop, and self-checks on agents.
 
 ---
 
@@ -288,27 +290,6 @@ Aligned capabilities: explicit reasoning, structured Pydantic output, tool separ
 
 ---
 
-## Demo video
-
-Ingest two engineering blog URLs; show graph growth and recommendations.
-
-**YouTube link:** _(add your recording URL here)_
-
----
-
-## Assignment coverage
-
-- Multi-step agentic pipeline (planner loop + 3 structured LLM agents in MCP tools)
-- Pydantic validation with `reasoning`, `confidence`, `self_check`, `reasoning_types`
-- Knowledge graph persistence (`data/graph.json`)
-- Contextual recommendations (prerequisites, learn-next)
-- Session 5 style: MCP tools + LLM orchestrator + optional Gateway V2
-- Not a summarizer / stock / crypto tool
-
-See also: [chat-gpt-reply.md](chat-gpt-reply.md) if present in your fork.
-
----
-
 ## Security
 
 See **[SECURITY.md](SECURITY.md)** for a pre-push checklist.
@@ -322,4 +303,4 @@ See **[SECURITY.md](SECURITY.md)** for a pre-push checklist.
 
 ## License
 
-MIT (or your course submission terms — add a `LICENSE` file if publishing publicly).
+[MIT](LICENSE)
